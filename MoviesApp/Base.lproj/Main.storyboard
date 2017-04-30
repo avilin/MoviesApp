@@ -1,14 +1,20 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="MoviesApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +22,87 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="MoviesApp" translatesAutoresizingMaskIntoConstraints="NO" id="tbX-mE-jhg">
+                                <rect key="frame" x="16" y="139" width="343" height="56"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t4v-NH-EUF">
+                                <rect key="frame" x="66" y="270" width="242.5" height="126"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="roa-GU-8lu">
+                                        <rect key="frame" x="8" y="8" width="226.5" height="110"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TsI-pc-iMZ">
+                                                <rect key="frame" x="0.0" y="0.0" width="226.5" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hja-lj-8pb">
+                                                <rect key="frame" x="0.0" y="40" width="226.5" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i3H-yP-We0">
+                                                <rect key="frame" x="0.0" y="80" width="226.5" height="30"/>
+                                                <state key="normal" title="Sign In"/>
+                                                <connections>
+                                                    <action selector="signInTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3tQ-6f-m45"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="roa-GU-8lu" secondAttribute="trailing" constant="8" id="9sw-CD-LkZ"/>
+                                    <constraint firstItem="roa-GU-8lu" firstAttribute="top" secondItem="t4v-NH-EUF" secondAttribute="top" constant="8" id="KOo-JF-md0"/>
+                                    <constraint firstItem="roa-GU-8lu" firstAttribute="leading" secondItem="t4v-NH-EUF" secondAttribute="leading" constant="8" id="b8h-jN-cpv"/>
+                                    <constraint firstAttribute="bottom" secondItem="roa-GU-8lu" secondAttribute="bottom" constant="8" id="jV7-ik-aq3"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="tbX-mE-jhg" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.5" priority="750" id="F4F-lp-cWi"/>
+                            <constraint firstItem="t4v-NH-EUF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="50" id="Ipe-ui-sHJ"/>
+                            <constraint firstItem="t4v-NH-EUF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Mg3-oE-bVb"/>
+                            <constraint firstItem="t4v-NH-EUF" firstAttribute="top" relation="greaterThanOrEqual" secondItem="tbX-mE-jhg" secondAttribute="bottom" constant="20" id="S2a-iY-Mgz"/>
+                            <constraint firstItem="tbX-mE-jhg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="TjT-uM-qci"/>
+                            <constraint firstItem="t4v-NH-EUF" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="fRm-pv-PA7"/>
+                            <constraint firstItem="tbX-mE-jhg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hUd-6I-aBU"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="formView" destination="t4v-NH-EUF" id="Kgt-No-8Ge"/>
+                        <outlet property="passwordTextField" destination="hja-lj-8pb" id="0YY-tD-xWk"/>
+                        <outlet property="signInButton" destination="i3H-yP-We0" id="Dlr-Tz-PeF"/>
+                        <outlet property="usernameTextField" destination="TsI-pc-iMZ" id="vmb-sN-Re3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="24.800000000000001" y="36.431784107946029"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="mdV-t1-YhY">
+            <objects>
+                <viewController id="tVS-co-lqM" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BKk-ua-Z0O"/>
+                        <viewControllerLayoutGuide type="bottom" id="abB-7B-jRo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9ud-bQ-pUu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SXw-rx-Rhu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="MoviesApp" width="214" height="56"/>
+    </resources>
 </document>
