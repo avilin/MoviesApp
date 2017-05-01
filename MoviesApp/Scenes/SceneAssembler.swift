@@ -16,6 +16,12 @@ class SceneAssembler {
     func assembleLogin() -> UIViewController {
         let storyboad = UIStoryboard(name: mainStoryboardName, bundle: nil)
         let loginViewController = storyboad.instantiateViewController(withIdentifier: loginIdentifier)
+
+        if let loginViewController = loginViewController as? LoginViewController {
+            let loginViewModel = LoginViewModelType()
+            loginViewController.viewModel = loginViewModel
+        }
+
         return loginViewController
     }
 
