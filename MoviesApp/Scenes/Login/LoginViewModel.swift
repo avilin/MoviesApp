@@ -13,6 +13,6 @@ protocol LoginViewModel {
     var username: Binder<String> { get }
     var password: Binder<String> { get }
 
-    func signIn()
+    func logIn()
 
 }

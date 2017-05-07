@@ -14,7 +14,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var formView: UIView!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet weak var logInButton: UIButton!
 
     // MARK: - Properties
     var viewModel: LoginViewModel?
@@ -40,8 +40,8 @@ class LoginViewController: UIViewController {
         }
     }
 
-    @IBAction func signInTouched(_ sender: UIButton) {
-        viewModel?.signIn()
+    @IBAction func logInTouched(_ sender: UIButton) {
+        viewModel?.logIn()
     }
 
     // MARK: - Custom functions
@@ -58,7 +58,19 @@ class LoginViewController: UIViewController {
     func styleScreen() {
         ViewStyler.style(backgroudView: view)
         ViewStyler.style(formView: formView)
-        ViewStyler.style(formButton: signInButton)
+        ViewStyler.style(formButton: logInButton)
+    }
+
+}
+
+extension LoginViewController: LoginEventsDelegate {
+
+    func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+
+        present(alert, animated: true)
     }
 
 }

@@ -52,9 +52,9 @@
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i3H-yP-We0">
                                                 <rect key="frame" x="0.0" y="80" width="226.5" height="30"/>
-                                                <state key="normal" title="Sign In"/>
+                                                <state key="normal" title="Log In"/>
                                                 <connections>
-                                                    <action selector="signInTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3tQ-6f-m45"/>
+                                                    <action selector="logInTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EcK-kL-jVs"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -81,8 +81,8 @@
                     </view>
                     <connections>
                         <outlet property="formView" destination="t4v-NH-EUF" id="Kgt-No-8Ge"/>
+                        <outlet property="logInButton" destination="i3H-yP-We0" id="hGc-rx-MYF"/>
                         <outlet property="passwordTextField" destination="hja-lj-8pb" id="0YY-tD-xWk"/>
-                        <outlet property="signInButton" destination="i3H-yP-We0" id="Dlr-Tz-PeF"/>
                         <outlet property="usernameTextField" destination="TsI-pc-iMZ" id="vmb-sN-Re3"/>
                     </connections>
                 </viewController>

@@ -13,12 +13,20 @@ class SceneAssembler {
     private let mainStoryboardName = "Main"
     private let loginIdentifier = "LoginViewController"
 
+    private let userService: UserService
+    private let userDAO: UserDAO
+
+    init() {
+        userDAO = UserDAORest()
+        userService = UserService(userDAO: userDAO)
+    }
+
     func assembleLogin() -> UIViewController {
         let storyboad = UIStoryboard(name: mainStoryboardName, bundle: nil)
         let loginViewController = storyboad.instantiateViewController(withIdentifier: loginIdentifier)
 
         if let loginViewController = loginViewController as? LoginViewController {
-            let loginViewModel = LoginViewModelType()
+            let loginViewModel = LoginViewModelType(loginEventsDelegate: loginViewController, userService: userService)
             loginViewController.viewModel = loginViewModel
         }
 
