@@ -20,8 +20,8 @@ class LoginViewModelType: LoginViewModel {
         self.loginEventsDelegate = loginEventsDelegate
         self.userService = userService
 
-        username = Binder("admin")
-        password = Binder("admin")
+        username = Binder("")
+        password = Binder("")
 
         username.bindOnViewUpdated { [unowned self] (string) in
             self.username.value = string
