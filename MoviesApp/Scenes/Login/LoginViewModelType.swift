@@ -36,8 +36,8 @@ class LoginViewModelType: LoginViewModel {
         if userService.validateLogin(username: username.value, password: password.value) {
             userService.loginWith(username: username.value, password: password.value, successCallback: {
 
-            }, errorCallback: { message in
-                loginEventsDelegate?.showAlert(title: "ERROR", message: message)
+            }, errorCallback: { [unowned self] message in
+                self.loginEventsDelegate?.showAlert(title: "ERROR", message: message)
             })
         } else {
             loginEventsDelegate?.showAlert(title: "ERROR", message: "Username and password must not be empty")

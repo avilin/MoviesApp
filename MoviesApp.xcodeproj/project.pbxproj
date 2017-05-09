@@ -19,10 +19,13 @@
 		7C25C1CC1EBF75280042A669 /* UserDAORest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C25C1CB1EBF75280042A669 /* UserDAORest.swift */; };
 		7C25C1CE1EBF75430042A669 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C25C1CD1EBF75430042A669 /* UserService.swift */; };
 		7C25C1D01EBF812F0042A669 /* LoginEventsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C25C1CF1EBF812F0042A669 /* LoginEventsDelegate.swift */; };
+		7C2621011EC23B5300D39BF7 /* ResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2621001EC23B5300D39BF7 /* ResponseParser.swift */; };
+		7C2621031EC23DE900D39BF7 /* ParserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2621021EC23DE900D39BF7 /* ParserError.swift */; };
 		7C3C33131EB71584007C5F5E /* Binder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3C33121EB71584007C5F5E /* Binder.swift */; };
 		7C3C33161EB7158D007C5F5E /* ViewStyler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3C33151EB7158D007C5F5E /* ViewStyler.swift */; };
 		7C3C33181EB7174C007C5F5E /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3C33171EB7174C007C5F5E /* LoginViewModel.swift */; };
 		7C3C331A1EB7175F007C5F5E /* LoginViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3C33191EB7175F007C5F5E /* LoginViewModelType.swift */; };
+		7C5033F71EC11F650055D432 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5033F61EC11F650055D432 /* Response.swift */; };
 		7C54D3731EB6342200EB8E02 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C54D3721EB6342200EB8E02 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,10 +46,13 @@
 		7C25C1CB1EBF75280042A669 /* UserDAORest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDAORest.swift; sourceTree = "<group>"; };
 		7C25C1CD1EBF75430042A669 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		7C25C1CF1EBF812F0042A669 /* LoginEventsDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginEventsDelegate.swift; sourceTree = "<group>"; };
+		7C2621001EC23B5300D39BF7 /* ResponseParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseParser.swift; sourceTree = "<group>"; };
+		7C2621021EC23DE900D39BF7 /* ParserError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParserError.swift; sourceTree = "<group>"; };
 		7C3C33121EB71584007C5F5E /* Binder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Binder.swift; sourceTree = "<group>"; };
 		7C3C33151EB7158D007C5F5E /* ViewStyler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewStyler.swift; sourceTree = "<group>"; };
 		7C3C33171EB7174C007C5F5E /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		7C3C33191EB7175F007C5F5E /* LoginViewModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModelType.swift; sourceTree = "<group>"; };
+		7C5033F61EC11F650055D432 /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		7C54D3721EB6342200EB8E02 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,6 +117,9 @@
 				7C25C1C91EBF75020042A669 /* UserDAO.swift */,
 				7C25C1CB1EBF75280042A669 /* UserDAORest.swift */,
 				7C25C1C71EBF74B20042A669 /* User.swift */,
+				7C5033F61EC11F650055D432 /* Response.swift */,
+				7C2621001EC23B5300D39BF7 /* ResponseParser.swift */,
+				7C2621021EC23DE900D39BF7 /* ParserError.swift */,
 			);
 			path = BusinessLogic;
 			sourceTree = "<group>";
@@ -309,9 +318,12 @@
 				7C25C1D01EBF812F0042A669 /* LoginEventsDelegate.swift in Sources */,
 				7C54D3731EB6342200EB8E02 /* LoginViewController.swift in Sources */,
 				7C25C1CE1EBF75430042A669 /* UserService.swift in Sources */,
+				7C2621031EC23DE900D39BF7 /* ParserError.swift in Sources */,
 				7C3C33131EB71584007C5F5E /* Binder.swift in Sources */,
 				7C3C331A1EB7175F007C5F5E /* LoginViewModelType.swift in Sources */,
+				7C2621011EC23B5300D39BF7 /* ResponseParser.swift in Sources */,
 				7C25C1CA1EBF75020042A669 /* UserDAO.swift in Sources */,
+				7C5033F71EC11F650055D432 /* Response.swift in Sources */,
 				7C211D431EB4F3C000232C08 /* AppDelegate.swift in Sources */,
 				7C3C33161EB7158D007C5F5E /* ViewStyler.swift in Sources */,
 				7C25C1C81EBF74B20042A669 /* User.swift in Sources */,
