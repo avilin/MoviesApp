@@ -21,9 +21,10 @@ class UserService {
     }
 
     func loginWith(username: String, password: String,
-                   successCallback: (Void) -> Void, errorCallback: @escaping (String) -> Void) {
+                   successCallback: @escaping (Void) -> Void, errorCallback: @escaping (String) -> Void) {
         userDAO.loginWith(username: username, password: password, successCallback: { [unowned self] user in
             self.storeUser(user, password: password)
+            successCallback()
         }, errorCallback: errorCallback)
     }
 
@@ -32,6 +33,15 @@ class UserService {
         UserDefaults.standard.set(user.email, forKey: "email")
         UserDefaults.standard.set(user.username, forKey: "username")
         UserDefaults.standard.set(password, forKey: "password")
+    }
+
+    func userLogged() -> Bool {
+        let userID = UserDefaults.standard.integer(forKey: "userID")
+        let email = UserDefaults.standard.string(forKey: "email")
+        let username = UserDefaults.standard.string(forKey: "username")
+        let password = UserDefaults.standard.string(forKey: "password")
+
+        return userID != 0 && email != nil && username != nil && password != nil
     }
 
 }

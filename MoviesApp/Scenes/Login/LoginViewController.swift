@@ -19,6 +19,8 @@ class LoginViewController: UIViewController {
     // MARK: - Properties
     var viewModel: LoginViewModel?
 
+    var activityIndicatorHelper = ActivityIndicatorHelper()
+
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +28,8 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
         initBindings()
         styleScreen()
+
+        activityIndicatorHelper.createActivityIndicator(in: view)
     }
 
     // MARK: - IBActions
@@ -71,6 +75,14 @@ extension LoginViewController: LoginEventsDelegate {
         alert.addAction(cancelAction)
 
         present(alert, animated: true)
+    }
+
+    func showActivityIndicator() {
+        activityIndicatorHelper.showActivityIndicator()
+    }
+
+    func hideActivityIndicator() {
+        activityIndicatorHelper.hideActivityIndicator()
     }
 
 }

@@ -22,9 +22,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func initApplication() {
         window = UIWindow(frame: UIScreen.main.bounds)
-        let sceneAssembler = SceneAssembler()
-        let sceneRouter = SceneRouter(sceneAssembler: sceneAssembler)
-        sceneRouter.showLogin(window: window!)
+        let userDAO = UserDAORest()
+        let userService = UserService(userDAO: userDAO)
+        let sceneAssembler = SceneAssembler(userService: userService)
+        let sceneRouter = SceneRouter(window: window!, sceneAssembler: sceneAssembler)
+
+        if userService.userLogged() {
+            sceneRouter.showMovieCollection()
+        } else {
+            sceneRouter.showLogin()
+        }
     }
 
 }

@@ -10,14 +10,21 @@ import UIKit
 
 class SceneRouter {
 
-    let sceneAssembler: SceneAssembler
+    private let window: UIWindow
+    private let sceneAssembler: SceneAssembler
 
-    init(sceneAssembler: SceneAssembler) {
+    init(window: UIWindow, sceneAssembler: SceneAssembler) {
+        self.window = window
         self.sceneAssembler = sceneAssembler
     }
 
-    func showLogin(window: UIWindow) {
-        window.rootViewController = sceneAssembler.assembleLogin()
+    func showLogin() {
+        window.rootViewController = sceneAssembler.assembleLogin(sceneRouter: self)
+        window.makeKeyAndVisible()
+    }
+
+    func showMovieCollection() {
+        window.rootViewController = sceneAssembler.assembleMovieCollection()
         window.makeKeyAndVisible()
     }
 }

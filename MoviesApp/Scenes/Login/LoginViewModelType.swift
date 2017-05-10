@@ -12,13 +12,15 @@ class LoginViewModelType: LoginViewModel {
 
     weak var loginEventsDelegate: LoginEventsDelegate?
     let userService: UserService
+    let sceneRouter: SceneRouter
 
     let username: Binder<String>
     let password: Binder<String>
 
-    init(loginEventsDelegate: LoginEventsDelegate, userService: UserService) {
+    init(loginEventsDelegate: LoginEventsDelegate, userService: UserService, sceneRouter: SceneRouter) {
         self.loginEventsDelegate = loginEventsDelegate
         self.userService = userService
+        self.sceneRouter = sceneRouter
 
         username = Binder("")
         password = Binder("")
@@ -34,9 +36,12 @@ class LoginViewModelType: LoginViewModel {
 
     func logIn() {
         if userService.validateLogin(username: username.value, password: password.value) {
+            loginEventsDelegate?.showActivityIndicator()
             userService.loginWith(username: username.value, password: password.value, successCallback: {
-
+                self.loginEventsDelegate?.hideActivityIndicator()
+                self.sceneRouter.showMovieCollection()
             }, errorCallback: { [unowned self] message in
+                self.loginEventsDelegate?.hideActivityIndicator()
                 self.loginEventsDelegate?.showAlert(title: "ERROR", message: message)
             })
         } else {

@@ -11,5 +11,7 @@ import Foundation
 protocol LoginEventsDelegate: NSObjectProtocol {
 
     func showAlert(title: String, message: String)
+    func showActivityIndicator()
+    func hideActivityIndicator()
 
 }
