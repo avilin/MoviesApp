@@ -16,13 +16,41 @@ class UserService {
         self.userDAO = userDAO
     }
 
-    func validateLogin(username: String, password: String) -> Bool {
-        return !username.isEmpty && !password.isEmpty
+    func validateLogin(username: String, password: String) throws {
+        if username.isEmpty || password.isEmpty {
+            throw ValidationError.emptyValues
+        }
     }
 
-    func loginWith(username: String, password: String,
-                   successCallback: @escaping (Void) -> Void, errorCallback: @escaping (String) -> Void) {
+    func validateRegister(username: String, password: String, confirmPassword: String) throws {
+        if username.isEmpty || password.isEmpty || confirmPassword.isEmpty {
+            throw ValidationError.emptyValues
+        }
+
+        if username.characters.count < 5 {
+            throw ValidationError.shortUsername
+        }
+
+        if password != confirmPassword {
+            throw ValidationError.differentPasswords
+        }
+
+        if password.characters.count < 5 {
+            throw ValidationError.shortPassword
+        }
+    }
+
+    func loginWith(username: String, password: String, successCallback: @escaping (Void) -> Void,
+                   errorCallback: @escaping (String) -> Void) {
         userDAO.loginWith(username: username, password: password, successCallback: { [unowned self] user in
+            self.storeUser(user, password: password)
+            successCallback()
+        }, errorCallback: errorCallback)
+    }
+
+    func registerWith(username: String, password: String, successCallback: @escaping (Void) -> Void,
+                      errorCallback: @escaping (String) -> Void) {
+        userDAO.registerWith(username: username, password: password, successCallback: { [unowned self] user in
             self.storeUser(user, password: password)
             successCallback()
         }, errorCallback: errorCallback)

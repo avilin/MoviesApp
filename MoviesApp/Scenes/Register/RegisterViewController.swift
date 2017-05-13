@@ -19,6 +19,7 @@ class RegisterViewController: UIViewController {
 
     // MARK: - Properties
     var viewModel: RegisterViewModel?
+    var activityIndicatorHelper = ActivityIndicatorHelper()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,8 @@ class RegisterViewController: UIViewController {
         // Do any additional setup after loading the view.
         initBindings()
         styleScreen()
+
+        activityIndicatorHelper.createActivityIndicator(in: view)
     }
 
     // MARK: - IBActions
@@ -69,6 +72,27 @@ class RegisterViewController: UIViewController {
         ViewStyler.style(backgroudView: view)
         ViewStyler.style(formMainButton: registerButton)
         ViewStyler.style(formButton: cancelButton)
+    }
+
+}
+
+// MARK: - RegisterEventsDelegate
+extension RegisterViewController: RegisterEventsDelegate {
+
+    func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+
+        present(alert, animated: true)
+    }
+
+    func showActivityIndicator() {
+        activityIndicatorHelper.showActivityIndicator()
+    }
+
+    func hideActivityIndicator() {
+        activityIndicatorHelper.hideActivityIndicator()
     }
 
 }

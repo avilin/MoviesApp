@@ -35,7 +35,8 @@ class LoginViewModelType: LoginViewModel {
     }
 
     func logIn() {
-        if userService.validateLogin(username: username.value, password: password.value) {
+        do {
+            try userService.validateLogin(username: username.value, password: password.value)
             loginEventsDelegate?.showActivityIndicator()
             userService.loginWith(username: username.value, password: password.value, successCallback: {
                 self.loginEventsDelegate?.hideActivityIndicator()
@@ -44,8 +45,8 @@ class LoginViewModelType: LoginViewModel {
                 self.loginEventsDelegate?.hideActivityIndicator()
                 self.loginEventsDelegate?.showAlert(title: "ERROR", message: message)
             })
-        } else {
-            loginEventsDelegate?.showAlert(title: "ERROR", message: "Username and password must not be empty")
+        } catch {
+            loginEventsDelegate?.showAlert(title: "ERROR", message: "All fields are required")
         }
     }
 

@@ -111,7 +111,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                         <connections>
-                                            <action selector="editingChanged:" destination="zHj-eX-82d" eventType="editingDidEnd" id="UPH-fv-GFc"/>
+                                            <action selector="editingChanged:" destination="zHj-eX-82d" eventType="editingChanged" id="YnM-Zr-8cR"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ukX-Yp-mbI">
@@ -120,7 +120,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                                         <connections>
-                                            <action selector="editingChanged:" destination="zHj-eX-82d" eventType="editingDidEnd" id="hl8-FU-IcY"/>
+                                            <action selector="editingChanged:" destination="zHj-eX-82d" eventType="editingChanged" id="oLL-lb-KhB"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X5K-HV-iMT">
@@ -129,10 +129,10 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                                         <connections>
-                                            <action selector="editingChanged:" destination="zHj-eX-82d" eventType="editingDidEnd" id="MIj-Az-Gyl"/>
+                                            <action selector="editingChanged:" destination="zHj-eX-82d" eventType="editingChanged" id="lDF-Z5-Zqc"/>
                                         </connections>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vFE-ih-id3">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vFE-ih-id3">
                                         <rect key="frame" x="0.0" y="120" width="243" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <state key="normal" title="Register"/>

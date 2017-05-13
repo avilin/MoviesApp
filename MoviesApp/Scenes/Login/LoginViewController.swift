@@ -70,6 +70,7 @@ class LoginViewController: UIViewController {
 
 }
 
+// MARK: - LoginEventsDelegate
 extension LoginViewController: LoginEventsDelegate {
 
     func showAlert(title: String, message: String) {

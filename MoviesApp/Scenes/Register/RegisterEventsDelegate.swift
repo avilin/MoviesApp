@@ -10,4 +10,8 @@ import Foundation
 
 protocol RegisterEventsDelegate: NSObjectProtocol {
 
+    func showAlert(title: String, message: String)
+    func showActivityIndicator()
+    func hideActivityIndicator()
+
 }

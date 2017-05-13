@@ -41,7 +41,28 @@ class RegisterViewModelType: RegisterViewModel {
     }
 
     func register() {
+        do {
+            try userService.validateRegister(username: username.value, password: password.value,
+                                             confirmPassword: confirmPassword.value)
+            registerEventsDelegate?.showActivityIndicator()
+            userService.registerWith(username: username.value, password: password.value, successCallback: {
+                self.registerEventsDelegate?.hideActivityIndicator()
+                self.sceneRouter.showMovieCollection()
+            }, errorCallback: { [unowned self] message in
+                self.registerEventsDelegate?.hideActivityIndicator()
+                self.registerEventsDelegate?.showAlert(title: "ERROR", message: message)
+            })
+        } catch ValidationError.emptyValues {
+            registerEventsDelegate?.showAlert(title: "ERROR", message: "All fields are required")
+        } catch ValidationError.shortUsername {
+            registerEventsDelegate?.showAlert(title: "ERROR", message: "Username length must be 5 or more")
+        } catch ValidationError.differentPasswords {
+            registerEventsDelegate?.showAlert(title: "ERROR", message: "Passwords must be the same")
+        } catch ValidationError.shortPassword {
+            registerEventsDelegate?.showAlert(title: "ERROR", message: "Passwords length must be 5 or more")
+        } catch {
 
+        }
     }
 
 }
