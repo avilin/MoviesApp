@@ -13,11 +13,10 @@ import SwiftyJSON
 class UserDAORest: UserDAO {
 
     var parseUser = { (json: JSON) throws -> User in
-        guard let userID = json["id"].int, let email = json["email"].string,
-            let username = json["username"].string else {
+        guard let userID = json["id"].int, let username = json["username"].string else {
                 throw ParseError.entityFieldNotFound
         }
-        return User(userID: userID, email: email, username: username)
+        return User(userID: userID, username: username)
     }
 
     func loginWith(username: String, password: String, successCallback: @escaping (User) -> Void,

@@ -30,18 +30,16 @@ class UserService {
 
     private func storeUser(_ user: User, password: String) {
         UserDefaults.standard.set(user.userID, forKey: "userID")
-        UserDefaults.standard.set(user.email, forKey: "email")
         UserDefaults.standard.set(user.username, forKey: "username")
         UserDefaults.standard.set(password, forKey: "password")
     }
 
     func userLogged() -> Bool {
         let userID = UserDefaults.standard.integer(forKey: "userID")
-        let email = UserDefaults.standard.string(forKey: "email")
         let username = UserDefaults.standard.string(forKey: "username")
         let password = UserDefaults.standard.string(forKey: "password")
 
-        return userID != 0 && email != nil && username != nil && password != nil
+        return userID != 0 && username != nil && password != nil
     }
 
 }

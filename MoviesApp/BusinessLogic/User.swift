@@ -9,12 +9,10 @@
 class User {
 
     let userID: Int
-    let email: String
     let username: String
 
-    init(userID: Int, email: String, username: String) {
+    init(userID: Int, username: String) {
         self.userID = userID
-        self.email = email
         self.username = username
     }
 
