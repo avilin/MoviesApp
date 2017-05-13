@@ -49,4 +49,8 @@ class LoginViewModelType: LoginViewModel {
         }
     }
 
+    func register() {
+        self.sceneRouter.showRegister()
+    }
+
 }

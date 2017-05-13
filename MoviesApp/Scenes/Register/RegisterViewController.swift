@@ -11,11 +11,11 @@ import UIKit
 class RegisterViewController: UIViewController {
 
     // MARK: - IBOutlets
-    @IBOutlet weak var formView: UIView!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmPasswordTextField: UITextField!
     @IBOutlet weak var registerButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,11 +33,14 @@ class RegisterViewController: UIViewController {
 
     }
 
+    @IBAction func cancelTouched(_ sender: UIButton) {
+    }
+
     // MARK: - Custom functions
     func styleScreen() {
         ViewStyler.style(backgroudView: view)
-        ViewStyler.style(formView: formView)
-        ViewStyler.style(formButton: registerButton)
+        ViewStyler.style(formMainButton: registerButton)
+        ViewStyler.style(formButton: cancelButton)
     }
 
 }

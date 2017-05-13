@@ -12,6 +12,7 @@ class SceneAssembler {
 
     private let mainStoryboardName = "Main"
     private let loginIdentifier = "Login"
+    private let registerIdentifier = "Register"
     private let movieCollectionIdentifier = "MovieCollection"
 
     private let userService: UserService
@@ -30,6 +31,13 @@ class SceneAssembler {
         }
 
         return loginViewController
+    }
+
+    func assembleRegister(sceneRouter: SceneRouter) -> UIViewController {
+        let registerViewController = viewController(inStoryboard: mainStoryboardName,
+                                                    withIdentifier: registerIdentifier)
+
+        return registerViewController
     }
 
     func assembleMovieCollection() -> UIViewController {

@@ -11,10 +11,10 @@ import UIKit
 class LoginViewController: UIViewController {
 
     // MARK: - IBOutlets
-    @IBOutlet weak var formView: UIView!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var logInButton: UIButton!
+    @IBOutlet weak var registerButton: UIButton!
 
     // MARK: - Properties
     var viewModel: LoginViewModel?
@@ -48,6 +48,10 @@ class LoginViewController: UIViewController {
         viewModel?.logIn()
     }
 
+    @IBAction func registerTouched(_ sender: UIButton) {
+        viewModel?.register()
+    }
+
     // MARK: - Custom functions
     func initBindings() {
         viewModel?.username.bindAndFireOnModelUpdated { [unowned self] (text) in
@@ -61,8 +65,8 @@ class LoginViewController: UIViewController {
 
     func styleScreen() {
         ViewStyler.style(backgroudView: view)
-        ViewStyler.style(formView: formView)
-        ViewStyler.style(formButton: logInButton)
+        ViewStyler.style(formMainButton: logInButton)
+        ViewStyler.style(formButton: registerButton)
     }
 
 }

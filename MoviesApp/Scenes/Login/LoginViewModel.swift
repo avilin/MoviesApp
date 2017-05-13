@@ -14,5 +14,6 @@ protocol LoginViewModel {
     var password: Binder<String> { get }
 
     func logIn()
+    func register()
 
 }

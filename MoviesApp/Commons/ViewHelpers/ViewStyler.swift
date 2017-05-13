@@ -12,18 +12,17 @@ import ChameleonFramework
 class ViewStyler {
 
     static func style(backgroudView view: UIView) {
-        view.backgroundColor = FlatWhite()
-    }
-
-    static func style(formView view: UIView) {
         view.backgroundColor = FlatSkyBlue()
-        view.layer.cornerRadius = 5
     }
 
-    static func style(formButton button: UIButton) {
+    static func style(formMainButton button: UIButton) {
         button.backgroundColor = FlatWhite()
         button.setTitleColor(FlatSkyBlue(), for: .normal)
         button.layer.cornerRadius = 5
+    }
+
+    static func style(formButton button: UIButton) {
+        button.setTitleColor(FlatWhite(), for: .normal)
     }
 
 }

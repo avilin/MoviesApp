@@ -12,6 +12,7 @@ class SceneRouter {
 
     private let window: UIWindow
     private let sceneAssembler: SceneAssembler
+    private weak var currentViewController: UIViewController?
 
     init(window: UIWindow, sceneAssembler: SceneAssembler) {
         self.window = window
@@ -19,12 +20,23 @@ class SceneRouter {
     }
 
     func showLogin() {
-        window.rootViewController = sceneAssembler.assembleLogin(sceneRouter: self)
+        let loginViewController = sceneAssembler.assembleLogin(sceneRouter: self)
+        currentViewController = loginViewController
+        window.rootViewController = loginViewController
         window.makeKeyAndVisible()
     }
 
+    func showRegister() {
+        if let currentViewController = currentViewController {
+            let registerViewController = sceneAssembler.assembleRegister(sceneRouter: self)
+            currentViewController.present(registerViewController, animated: true)
+        }
+    }
+
     func showMovieCollection() {
-        window.rootViewController = sceneAssembler.assembleMovieCollection()
+        let movieCollectionViewController = sceneAssembler.assembleMovieCollection()
+        currentViewController = movieCollectionViewController
+        window.rootViewController = movieCollectionViewController
         window.makeKeyAndVisible()
     }
 }
