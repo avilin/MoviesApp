@@ -37,6 +37,12 @@ class SceneAssembler {
         let registerViewController = viewController(inStoryboard: mainStoryboardName,
                                                     withIdentifier: registerIdentifier)
 
+//        if let registerViewController = registerViewController as? RegisterViewController {
+//            let registerViewModel = RegisterViewModelType(registerEventsDelegate: registerViewController,
+//                                                       userService: userService, sceneRouter: sceneRouter)
+//            registerViewController.viewModel = registerViewModel
+//        }
+
         return registerViewController
     }
 

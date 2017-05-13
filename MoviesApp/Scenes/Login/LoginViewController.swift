@@ -18,7 +18,6 @@ class LoginViewController: UIViewController {
 
     // MARK: - Properties
     var viewModel: LoginViewModel?
-
     var activityIndicatorHelper = ActivityIndicatorHelper()
 
     // MARK: - Lifecycle

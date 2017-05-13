@@ -25,6 +25,9 @@
 		7C2B03AC1EC3876A005D3A55 /* MovieCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2B03AB1EC3876A005D3A55 /* MovieCollectionViewController.swift */; };
 		7C2B03AE1EC3A9BD005D3A55 /* ActivityIndicatorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2B03AD1EC3A9BD005D3A55 /* ActivityIndicatorHelper.swift */; };
 		7C3951021EC7824800693893 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3951011EC7824800693893 /* RegisterViewController.swift */; };
+		7C3951041EC792CE00693893 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3951031EC792CE00693893 /* RegisterViewModel.swift */; };
+		7C3951061EC7937E00693893 /* RegisterViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3951051EC7937E00693893 /* RegisterViewModelType.swift */; };
+		7C3951081EC7940000693893 /* RegisterEventsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3951071EC7940000693893 /* RegisterEventsDelegate.swift */; };
 		7C3C33131EB71584007C5F5E /* Binder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3C33121EB71584007C5F5E /* Binder.swift */; };
 		7C3C33161EB7158D007C5F5E /* ViewStyler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3C33151EB7158D007C5F5E /* ViewStyler.swift */; };
 		7C3C33181EB7174C007C5F5E /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3C33171EB7174C007C5F5E /* LoginViewModel.swift */; };
@@ -55,6 +58,9 @@
 		7C2B03AB1EC3876A005D3A55 /* MovieCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewController.swift; sourceTree = "<group>"; };
 		7C2B03AD1EC3A9BD005D3A55 /* ActivityIndicatorHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorHelper.swift; sourceTree = "<group>"; };
 		7C3951011EC7824800693893 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		7C3951031EC792CE00693893 /* RegisterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		7C3951051EC7937E00693893 /* RegisterViewModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewModelType.swift; sourceTree = "<group>"; };
+		7C3951071EC7940000693893 /* RegisterEventsDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterEventsDelegate.swift; sourceTree = "<group>"; };
 		7C3C33121EB71584007C5F5E /* Binder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Binder.swift; sourceTree = "<group>"; };
 		7C3C33151EB7158D007C5F5E /* ViewStyler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewStyler.swift; sourceTree = "<group>"; };
 		7C3C33171EB7174C007C5F5E /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -150,6 +156,9 @@
 			isa = PBXGroup;
 			children = (
 				7C3951011EC7824800693893 /* RegisterViewController.swift */,
+				7C3951071EC7940000693893 /* RegisterEventsDelegate.swift */,
+				7C3951031EC792CE00693893 /* RegisterViewModel.swift */,
+				7C3951051EC7937E00693893 /* RegisterViewModelType.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -349,16 +358,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C2B03AC1EC3876A005D3A55 /* MovieCollectionViewController.swift in Sources */,
+				7C3951061EC7937E00693893 /* RegisterViewModelType.swift in Sources */,
 				7C25C1D01EBF812F0042A669 /* LoginEventsDelegate.swift in Sources */,
 				7C54D3731EB6342200EB8E02 /* LoginViewController.swift in Sources */,
 				7C2621121EC2578F00D39BF7 /* ParserError.swift in Sources */,
 				7C3951021EC7824800693893 /* RegisterViewController.swift in Sources */,
 				7C25C1CE1EBF75430042A669 /* UserService.swift in Sources */,
 				7C3C33131EB71584007C5F5E /* Binder.swift in Sources */,
+				7C3951081EC7940000693893 /* RegisterEventsDelegate.swift in Sources */,
 				7C2621141EC2578F00D39BF7 /* ResponseParser.swift in Sources */,
 				7C3C331A1EB7175F007C5F5E /* LoginViewModelType.swift in Sources */,
 				7C2621131EC2578F00D39BF7 /* Response.swift in Sources */,
 				7C25C1CA1EBF75020042A669 /* UserDAO.swift in Sources */,
+				7C3951041EC792CE00693893 /* RegisterViewModel.swift in Sources */,
 				7C2B03AE1EC3A9BD005D3A55 /* ActivityIndicatorHelper.swift in Sources */,
 				7C211D431EB4F3C000232C08 /* AppDelegate.swift in Sources */,
 				7C3C33161EB7158D007C5F5E /* ViewStyler.swift in Sources */,
