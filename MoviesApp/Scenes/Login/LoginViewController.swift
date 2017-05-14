@@ -63,7 +63,6 @@ class LoginViewController: UIViewController {
     }
 
     func styleScreen() {
-        ViewStyler.style(backgroudView: view)
         ViewStyler.style(formMainButton: logInButton)
         ViewStyler.style(formButton: registerButton)
     }

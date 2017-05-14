@@ -15,5 +15,6 @@ protocol RegisterViewModel {
     var confirmPassword: Binder<String> { get }
 
     func register()
+    func cancelRegister()
 
 }

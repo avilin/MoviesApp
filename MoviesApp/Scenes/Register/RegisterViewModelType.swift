@@ -65,4 +65,8 @@ class RegisterViewModelType: RegisterViewModel {
         }
     }
 
+    func cancelRegister() {
+        sceneRouter.showLogin()
+    }
+
 }

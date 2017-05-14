@@ -11,6 +11,7 @@ import UIKit
 class SceneAssembler {
 
     private let mainStoryboardName = "Main"
+    private let authenticationIdentifier = "Authentication"
     private let loginIdentifier = "Login"
     private let registerIdentifier = "Register"
     private let movieCollectionIdentifier = "MovieCollection"
@@ -19,6 +20,12 @@ class SceneAssembler {
 
     init(userService: UserService) {
         self.userService = userService
+    }
+
+    func assembleMain() -> UIViewController {
+        let authenticationViewController = viewController(inStoryboard: mainStoryboardName,
+                                                          withIdentifier: authenticationIdentifier)
+        return authenticationViewController
     }
 
     func assembleLogin(sceneRouter: SceneRouter) -> UIViewController {

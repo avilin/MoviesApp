@@ -50,7 +50,7 @@ class RegisterViewController: UIViewController {
     }
 
     @IBAction func cancelTouched(_ sender: UIButton) {
-        dismiss(animated: true)
+        viewModel?.cancelRegister()
     }
 
     // MARK: - Custom functions
@@ -69,7 +69,6 @@ class RegisterViewController: UIViewController {
     }
 
     func styleScreen() {
-        ViewStyler.style(backgroudView: view)
         ViewStyler.style(formMainButton: registerButton)
         ViewStyler.style(formButton: cancelButton)
     }

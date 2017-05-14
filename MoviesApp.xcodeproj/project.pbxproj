@@ -14,6 +14,7 @@
 		7C211D481EB4F3C000232C08 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C211D461EB4F3C000232C08 /* Main.storyboard */; };
 		7C211D4A1EB4F3C000232C08 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C211D491EB4F3C000232C08 /* Assets.xcassets */; };
 		7C211D4D1EB4F3C000232C08 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C211D4B1EB4F3C000232C08 /* LaunchScreen.storyboard */; };
+		7C258B2C1EC8681100FE9B7E /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C258B2B1EC8681100FE9B7E /* AuthenticationViewController.swift */; };
 		7C25C1C81EBF74B20042A669 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C25C1C71EBF74B20042A669 /* User.swift */; };
 		7C25C1CA1EBF75020042A669 /* UserDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C25C1C91EBF75020042A669 /* UserDAO.swift */; };
 		7C25C1CE1EBF75430042A669 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C25C1CD1EBF75430042A669 /* UserService.swift */; };
@@ -48,6 +49,7 @@
 		7C211D491EB4F3C000232C08 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7C211D4C1EB4F3C000232C08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7C211D4E1EB4F3C000232C08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7C258B2B1EC8681100FE9B7E /* AuthenticationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		7C25C1C71EBF74B20042A669 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7C25C1C91EBF75020042A669 /* UserDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDAO.swift; sourceTree = "<group>"; };
 		7C25C1CD1EBF75430042A669 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 			children = (
 				7C0BAD911EB694D3002AC8BA /* SceneRouter.swift */,
 				7C0BAD8F1EB694BC002AC8BA /* SceneAssembler.swift */,
+				7C258B2B1EC8681100FE9B7E /* AuthenticationViewController.swift */,
 				7C54D3711EB633F600EB8E02 /* Login */,
 				7C3951001EC7823300693893 /* Register */,
 				7C2B03AA1EC3871B005D3A55 /* MovieCollection */,
@@ -383,6 +386,7 @@
 				7C2621131EC2578F00D39BF7 /* Response.swift in Sources */,
 				7C25C1CA1EBF75020042A669 /* UserDAO.swift in Sources */,
 				7C3951041EC792CE00693893 /* RegisterViewModel.swift in Sources */,
+				7C258B2C1EC8681100FE9B7E /* AuthenticationViewController.swift in Sources */,
 				7C2B03AE1EC3A9BD005D3A55 /* ActivityIndicatorHelper.swift in Sources */,
 				7C211D431EB4F3C000232C08 /* AppDelegate.swift in Sources */,
 				7C3C33161EB7158D007C5F5E /* ViewStyler.swift in Sources */,
