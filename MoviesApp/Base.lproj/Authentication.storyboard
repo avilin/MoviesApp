@@ -49,28 +49,14 @@
             </objects>
             <point key="canvasLocation" x="-326" y="111"/>
         </scene>
-        <!--Movie Collection View Controller-->
-        <scene sceneID="GzQ-1x-Aoy">
-            <objects>
-                <viewController storyboardIdentifier="MovieCollection" id="98R-eN-UDy" customClass="MovieCollectionViewController" customModule="MoviesApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="moq-gj-gWs"/>
-                        <viewControllerLayoutGuide type="bottom" id="OSV-vd-Dec"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="u0y-rX-Mws">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eDz-zQ-nsf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="959" y="36"/>
-        </scene>
         <!--Register View Controller-->
         <scene sceneID="fJ7-hC-x0e">
             <objects>
                 <viewController storyboardIdentifier="Register" id="s8i-Jb-Hbq" customClass="RegisterViewController" customModule="MoviesApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yQc-tF-13u"/>
+                        <viewControllerLayoutGuide type="bottom" id="Yzf-b3-9dU"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="xuq-0k-u35">
                         <rect key="frame" x="0.0" y="0.0" width="243" height="190"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -148,6 +134,10 @@
         <scene sceneID="Ojl-Ab-B3U">
             <objects>
                 <viewController storyboardIdentifier="Login" id="Vgc-1d-0qi" customClass="LoginViewController" customModule="MoviesApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zbV-G2-5ed"/>
+                        <viewControllerLayoutGuide type="bottom" id="aUV-Uy-HP2"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="50G-OE-zhu">
                         <rect key="frame" x="0.0" y="0.0" width="243" height="150"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

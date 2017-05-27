@@ -10,7 +10,9 @@ import UIKit
 
 class SceneAssembler {
 
-    private let mainStoryboardName = "Main"
+    private let authenticationStoryboardName = "Authentication"
+    private let moviesStoryboardName = "Movies"
+
     private let authenticationIdentifier = "Authentication"
     private let loginIdentifier = "Login"
     private let registerIdentifier = "Register"
@@ -23,13 +25,14 @@ class SceneAssembler {
     }
 
     func assembleMain() -> UIViewController {
-        let authenticationViewController = viewController(inStoryboard: mainStoryboardName,
+        let authenticationViewController = viewController(inStoryboard: authenticationStoryboardName,
                                                           withIdentifier: authenticationIdentifier)
         return authenticationViewController
     }
 
     func assembleLogin(sceneRouter: SceneRouter) -> UIViewController {
-        let loginViewController = viewController(inStoryboard: mainStoryboardName, withIdentifier: loginIdentifier)
+        let loginViewController = viewController(inStoryboard: authenticationStoryboardName,
+                                                 withIdentifier: loginIdentifier)
 
         if let loginViewController = loginViewController as? LoginViewController {
             let loginViewModel = LoginViewModelType(loginEventsDelegate: loginViewController, userService: userService,
@@ -41,7 +44,7 @@ class SceneAssembler {
     }
 
     func assembleRegister(sceneRouter: SceneRouter) -> UIViewController {
-        let registerViewController = viewController(inStoryboard: mainStoryboardName,
+        let registerViewController = viewController(inStoryboard: authenticationStoryboardName,
                                                     withIdentifier: registerIdentifier)
 
         if let registerViewController = registerViewController as? RegisterViewController {
@@ -54,7 +57,7 @@ class SceneAssembler {
     }
 
     func assembleMovieCollection() -> UIViewController {
-        let movieCollectionViewController = viewController(inStoryboard: mainStoryboardName,
+        let movieCollectionViewController = viewController(inStoryboard: moviesStoryboardName,
                                                            withIdentifier: movieCollectionIdentifier)
         return movieCollectionViewController
     }

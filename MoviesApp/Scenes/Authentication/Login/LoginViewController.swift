@@ -28,7 +28,9 @@ class LoginViewController: UIViewController {
         initBindings()
         styleScreen()
 
-        activityIndicatorHelper.createActivityIndicator(in: view)
+        if let parentView = self.parent?.view {
+            activityIndicatorHelper.createActivityIndicator(in: parentView)
+        }
     }
 
     // MARK: - IBActions
