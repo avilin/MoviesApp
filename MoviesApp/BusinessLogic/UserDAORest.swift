@@ -16,7 +16,8 @@ class UserDAORest: UserDAO {
         guard let userID = json["id"].int, let username = json["username"].string else {
                 throw ParseError.entityFieldNotFound
         }
-        return User(userID: userID, username: username)
+        let avatarURL = json["avatarURL"].string
+        return User(userID: userID, username: username, avatarURL: avatarURL)
     }
 
     func loginWith(username: String, password: String, successCallback: @escaping (User) -> Void,

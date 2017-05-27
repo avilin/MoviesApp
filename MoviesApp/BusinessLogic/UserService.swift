@@ -60,6 +60,7 @@ class UserService {
         UserDefaults.standard.set(user.userID, forKey: "userID")
         UserDefaults.standard.set(user.username, forKey: "username")
         UserDefaults.standard.set(password, forKey: "password")
+        UserDefaults.standard.set(user.avatarURL, forKey: "avatarURL")
     }
 
     func userLogged() -> Bool {
