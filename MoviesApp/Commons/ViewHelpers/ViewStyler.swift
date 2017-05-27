@@ -15,6 +15,11 @@ class ViewStyler {
         view.backgroundColor = FlatSkyBlue()
     }
 
+    static func style(navigationView view: UINavigationBar) {
+        view.backgroundColor = FlatWhite()
+        view.titleTextAttributes = [NSForegroundColorAttributeName: FlatSkyBlue()]
+    }
+
     static func style(formMainButton button: UIButton) {
         button.backgroundColor = FlatWhite()
         button.setTitleColor(FlatSkyBlue(), for: .normal)

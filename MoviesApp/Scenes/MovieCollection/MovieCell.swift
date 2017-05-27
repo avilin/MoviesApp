@@ -1,15 +1,15 @@
 //
-//  MovieCollectionViewModel.swift
+//  MovieCell.swift
 //  MoviesApp
 //
 //  Created by Andrés Vicente Linares on 27/5/17.
 //  Copyright © 2017 Andrés Vicente Linares. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-protocol MovieCollectionViewModel {
+class MovieCell: UICollectionViewCell {
 
-    func loadMovies()
+    @IBOutlet weak var imageView: UIImageView!
 
 }

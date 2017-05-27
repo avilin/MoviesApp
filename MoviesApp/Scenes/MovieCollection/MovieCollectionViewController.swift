@@ -10,80 +10,73 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
-class MovieCollectionViewController: UICollectionViewController {
+class MovieCollectionViewController: UIViewController {
 
+    // MARK: - IBOutlets
+    @IBOutlet weak var collectionView: UICollectionView!
+
+    // MARK: - Properties
+    var viewModel: MovieCollectionViewModel?
+    var activityIndicatorHelper = ActivityIndicatorHelper()
+
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
         // Do any additional setup after loading the view.
+        styleScreen()
+
+        activityIndicatorHelper.createActivityIndicator(in: view)
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+    // MARK: - Custom functions
+    func styleScreen() {
+        ViewStyler.style(backgroudView: view)
+        ViewStyler.style(backgroudView: collectionView)
+        if let navigationBar = navigationController?.navigationBar {
+            ViewStyler.style(navigationView: navigationBar)
+        }
     }
-    */
 
-    // MARK: UICollectionViewDataSource
+}
 
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
+// MARK: - UICollectionViewDataSource
+extension MovieCollectionViewController: UICollectionViewDataSource {
+
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 0
     }
 
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return 0
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath)
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath)
         -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+            as? MovieCell else {
+            fatalError()
+        }
 
-        // Configure the cell
+        cell.layer.borderColor = UIColor.white.cgColor
+        cell.layer.borderWidth = 4
+        cell.layer.cornerRadius = 10
 
         return cell
     }
 
-    // MARK: UICollectionViewDelegate
+}
 
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
+// MARK: - UICollectionViewDelegate
+extension MovieCollectionViewController: UICollectionViewDelegate {
 
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
     }
 
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
+}
 
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-    
-    }
-    */
+// MARK: - UICollectionViewDelegateFlowLayout
+extension MovieCollectionViewController: UICollectionViewDelegateFlowLayout {
 
 }

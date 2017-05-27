@@ -49,7 +49,8 @@ class SceneRouter {
     func showMovieCollection() {
         let movieCollectionViewController = sceneAssembler.assembleMovieCollection()
         currentViewController = movieCollectionViewController
-        window.rootViewController = movieCollectionViewController
+        let navigationController = UINavigationController(rootViewController: movieCollectionViewController)
+        window.rootViewController = navigationController
         window.makeKeyAndVisible()
     }
 }

@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+class MovieCollectionViewModelType: MovieCollectionViewModel {
+
+    func loadMovies() {
+
+    }
+
+}
