@@ -8,7 +8,7 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
+private let reuseIdentifier = "MovieCell"
 
 class MovieCollectionViewController: UIViewController {
 
@@ -24,12 +24,27 @@ class MovieCollectionViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        automaticallyAdjustsScrollViewInsets = false
+
+        initBindings()
         styleScreen()
 
         activityIndicatorHelper.createActivityIndicator(in: view)
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        viewModel?.loadMovies()
+    }
+
     // MARK: - Custom functions
+    func initBindings() {
+        viewModel?.movies.bindAndFireOnModelUpdated { [unowned self] _ in
+            self.collectionView.reloadData()
+        }
+    }
+
     func styleScreen() {
         ViewStyler.style(backgroudView: view)
         ViewStyler.style(backgroudView: collectionView)
@@ -48,7 +63,10 @@ extension MovieCollectionViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        guard let viewModel = viewModel else {
+            return 0
+        }
+        return viewModel.movies.value.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath)
@@ -57,6 +75,9 @@ extension MovieCollectionViewController: UICollectionViewDataSource {
             as? MovieCell else {
             fatalError()
         }
+
+        cell.imageView.backgroundColor = UIColor.white
+        cell.nameLabel.text = viewModel?.movies.value[indexPath.row].name
 
         cell.layer.borderColor = UIColor.white.cgColor
         cell.layer.borderWidth = 4
@@ -78,5 +99,26 @@ extension MovieCollectionViewController: UICollectionViewDelegate {
 
 // MARK: - UICollectionViewDelegateFlowLayout
 extension MovieCollectionViewController: UICollectionViewDelegateFlowLayout {
+
+}
+
+// MARK: - MovieCollectionEventsDelegate
+extension MovieCollectionViewController: MovieCollectionEventsDelegate {
+
+    func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+
+        present(alert, animated: true)
+    }
+
+    func showActivityIndicator() {
+        activityIndicatorHelper.showActivityIndicator()
+    }
+
+    func hideActivityIndicator() {
+        activityIndicatorHelper.hideActivityIndicator()
+    }
 
 }

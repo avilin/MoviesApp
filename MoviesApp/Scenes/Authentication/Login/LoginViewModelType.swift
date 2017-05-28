@@ -38,13 +38,14 @@ class LoginViewModelType: LoginViewModel {
         do {
             try userService.validateLogin(username: username.value, password: password.value)
             loginEventsDelegate?.showActivityIndicator()
-            userService.loginWith(username: username.value, password: password.value, successCallback: {
-                self.loginEventsDelegate?.hideActivityIndicator()
-                self.sceneRouter.showMovieCollection()
-            }, errorCallback: { [unowned self] message in
-                self.loginEventsDelegate?.hideActivityIndicator()
-                self.loginEventsDelegate?.showAlert(title: "ERROR", message: message)
-            })
+            userService.loginWith(username: username.value, password: password.value,
+                successCallback: { [unowned self] in
+                    self.loginEventsDelegate?.hideActivityIndicator()
+                    self.sceneRouter.showMovieCollection()
+                }, errorCallback: { [unowned self] message in
+                    self.loginEventsDelegate?.hideActivityIndicator()
+                    self.loginEventsDelegate?.showAlert(title: "ERROR", message: message)
+                })
         } catch {
             loginEventsDelegate?.showAlert(title: "ERROR", message: "All fields are required")
         }

@@ -1,5 +1,5 @@
 //
-//  MovieCollectionViewModel.swift
+//  MovieDAO.swift
 //  MoviesApp
 //
 //  Created by Andrés Vicente Linares on 27/5/17.
@@ -8,10 +8,8 @@
 
 import Foundation
 
-protocol MovieCollectionViewModel {
+protocol MovieDAO {
 
-    var movies: Binder<[Movie]> { get }
-
-    func loadMovies()
+    func findAll(successCallback: @escaping ([Movie]) -> Void, errorCallback: @escaping (String) -> Void)
 
 }

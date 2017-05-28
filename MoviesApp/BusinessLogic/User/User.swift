@@ -10,7 +10,7 @@ class User {
 
     let userID: Int
     let username: String
-    var avatarURL: String?
+    let avatarURL: String?
 
     init(userID: Int, username: String, avatarURL: String?) {
         self.userID = userID

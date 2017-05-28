@@ -47,7 +47,7 @@ class SceneRouter {
     }
 
     func showMovieCollection() {
-        let movieCollectionViewController = sceneAssembler.assembleMovieCollection()
+        let movieCollectionViewController = sceneAssembler.assembleMovieCollection(sceneRouter: self)
         currentViewController = movieCollectionViewController
         let navigationController = UINavigationController(rootViewController: movieCollectionViewController)
         window.rootViewController = navigationController

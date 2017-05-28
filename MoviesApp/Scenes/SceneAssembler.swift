@@ -19,9 +19,11 @@ class SceneAssembler {
     private let movieCollectionIdentifier = "MovieCollection"
 
     private let userService: UserService
+    private let movieService: MovieService
 
-    init(userService: UserService) {
+    init(userService: UserService, movieService: MovieService) {
         self.userService = userService
+        self.movieService = movieService
     }
 
     func assembleMain() -> UIViewController {
@@ -56,9 +58,17 @@ class SceneAssembler {
         return registerViewController
     }
 
-    func assembleMovieCollection() -> UIViewController {
+    func assembleMovieCollection(sceneRouter: SceneRouter) -> UIViewController {
         let movieCollectionViewController = viewController(inStoryboard: moviesStoryboardName,
                                                            withIdentifier: movieCollectionIdentifier)
+
+        if let movieCollectionViewController = movieCollectionViewController as? MovieCollectionViewController {
+            let movieCollectionViewModel = MovieCollectionViewModelType(
+                movieCollectionEventsDelegate: movieCollectionViewController, movieService: movieService,
+                sceneRouter: sceneRouter)
+
+            movieCollectionViewController.viewModel = movieCollectionViewModel
+        }
         return movieCollectionViewController
     }
 

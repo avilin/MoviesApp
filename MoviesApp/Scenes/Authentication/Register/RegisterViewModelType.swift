@@ -45,13 +45,14 @@ class RegisterViewModelType: RegisterViewModel {
             try userService.validateRegister(username: username.value, password: password.value,
                                              confirmPassword: confirmPassword.value)
             registerEventsDelegate?.showActivityIndicator()
-            userService.registerWith(username: username.value, password: password.value, successCallback: {
-                self.registerEventsDelegate?.hideActivityIndicator()
-                self.sceneRouter.showMovieCollection()
-            }, errorCallback: { [unowned self] message in
-                self.registerEventsDelegate?.hideActivityIndicator()
-                self.registerEventsDelegate?.showAlert(title: "ERROR", message: message)
-            })
+            userService.registerWith(username: username.value, password: password.value,
+                successCallback: { [unowned self] in
+                    self.registerEventsDelegate?.hideActivityIndicator()
+                    self.sceneRouter.showMovieCollection()
+                }, errorCallback: { [unowned self] message in
+                    self.registerEventsDelegate?.hideActivityIndicator()
+                    self.registerEventsDelegate?.showAlert(title: "ERROR", message: message)
+                })
         } catch ValidationError.emptyValues {
             registerEventsDelegate?.showAlert(title: "ERROR", message: "All fields are required")
         } catch ValidationError.shortUsername {
