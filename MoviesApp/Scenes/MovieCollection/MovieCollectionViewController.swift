@@ -31,10 +31,6 @@ class MovieCollectionViewController: UIViewController {
         styleScreen()
 
         activityIndicatorHelper.createActivityIndicator(in: view)
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
 
         viewModel?.loadMovies()
     }
@@ -77,6 +73,7 @@ extension MovieCollectionViewController: UICollectionViewDataSource {
                 fatalError()
         }
 
+        cell.imageView.image = #imageLiteral(resourceName: "movieImagePlaceholder")
         if let movie = viewModel?.movies.value[indexPath.row] {
             if let thumbnailImageURL = movie.thumbnailImageURL {
                 cell.imageView.load.request(with: thumbnailImageURL)

@@ -19,6 +19,7 @@ class MovieCell: UICollectionViewCell {
         super.awakeFromNib()
 
         layer.cornerRadius = 10
+        backgroundColor = FlatWhiteDark()
         nameView.backgroundColor = FlatWhite()
         nameLabel.textColor = FlatSkyBlue()
     }
