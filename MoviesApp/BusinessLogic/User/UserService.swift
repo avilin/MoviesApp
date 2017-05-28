@@ -40,7 +40,7 @@ class UserService {
         }
     }
 
-    func loginWith(username: String, password: String, successCallback: @escaping (Void) -> Void,
+    func loginWith(username: String, password: String, successCallback: @escaping () -> Void,
                    errorCallback: @escaping (String) -> Void) {
         userDAO.loginWith(username: username, password: password, successCallback: { [unowned self] user in
             self.storeUser(user, password: password)
@@ -48,7 +48,7 @@ class UserService {
         }, errorCallback: errorCallback)
     }
 
-    func registerWith(username: String, password: String, successCallback: @escaping (Void) -> Void,
+    func registerWith(username: String, password: String, successCallback: @escaping () -> Void,
                       errorCallback: @escaping (String) -> Void) {
         userDAO.registerWith(username: username, password: password, successCallback: { [unowned self] user in
             self.storeUser(user, password: password)
