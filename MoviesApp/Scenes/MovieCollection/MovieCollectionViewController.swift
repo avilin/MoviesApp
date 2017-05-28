@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ImageLoader
 
 private let reuseIdentifier = "MovieCell"
 
@@ -73,11 +74,15 @@ extension MovieCollectionViewController: UICollectionViewDataSource {
         -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
             as? MovieCell else {
-            fatalError()
+                fatalError()
         }
 
-        cell.imageView.backgroundColor = UIColor.white
-        cell.nameLabel.text = viewModel?.movies.value[indexPath.row].name
+        if let movie = viewModel?.movies.value[indexPath.row] {
+            if let thumbnailImageURL = movie.thumbnailImageURL {
+                cell.imageView.load.request(with: thumbnailImageURL)
+            }
+            cell.nameLabel.text = movie.name
+        }
 
         return cell
     }
