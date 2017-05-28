@@ -7,11 +7,20 @@
 //
 
 import UIKit
+import ChameleonFramework
 
 class MovieCell: UICollectionViewCell {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameView: UIView!
     @IBOutlet weak var nameLabel: UILabel!
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+
+        layer.cornerRadius = 10
+        nameView.backgroundColor = FlatWhite()
+        nameLabel.textColor = FlatSkyBlue()
+    }
 
 }

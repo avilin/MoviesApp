@@ -79,10 +79,6 @@ extension MovieCollectionViewController: UICollectionViewDataSource {
         cell.imageView.backgroundColor = UIColor.white
         cell.nameLabel.text = viewModel?.movies.value[indexPath.row].name
 
-        cell.layer.borderColor = UIColor.white.cgColor
-        cell.layer.borderWidth = 4
-        cell.layer.cornerRadius = 10
-
         return cell
     }
 
