@@ -14,7 +14,6 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmPasswordTextField: UITextField!
-    @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
 
     // MARK: - Properties
@@ -26,7 +25,6 @@ class RegisterViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         initBindings()
-        styleScreen()
 
         if let parentView = self.parent?.view {
             activityIndicatorHelper.createActivityIndicator(in: parentView)
@@ -68,11 +66,6 @@ class RegisterViewController: UIViewController {
         viewModel?.confirmPassword.bindAndFireOnModelUpdated { [unowned self] (text) in
             self.confirmPasswordTextField.text = text
         }
-    }
-
-    func styleScreen() {
-        ViewStyler.style(formMainButton: registerButton)
-        ViewStyler.style(formButton: cancelButton)
     }
 
 }

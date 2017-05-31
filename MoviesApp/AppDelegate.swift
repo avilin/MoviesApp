@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ChameleonFramework
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,6 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func initApplication() {
         window = UIWindow(frame: UIScreen.main.bounds)
+
+        UINavigationBar.appearance().backgroundColor = FlatWhite()
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: FlatSkyBlue()]
 
         let userDAO = UserDAORest()
         let userService = UserService(userDAO: userDAO)

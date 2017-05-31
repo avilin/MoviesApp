@@ -19,7 +19,7 @@
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="BackgroundView" customModule="MoviesApp" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -57,7 +57,7 @@
                         <viewControllerLayoutGuide type="top" id="yQc-tF-13u"/>
                         <viewControllerLayoutGuide type="bottom" id="Yzf-b3-9dU"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="xuq-0k-u35">
+                    <view key="view" contentMode="scaleToFill" id="xuq-0k-u35" customClass="BackgroundView" customModule="MoviesApp" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="243" height="190"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -91,17 +91,26 @@
                                             <action selector="editingChanged:" destination="s8i-Jb-Hbq" eventType="editingChanged" id="2BG-Vq-iVq"/>
                                         </connections>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8O0-5H-pp5">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8O0-5H-pp5" customClass="AppButton" customModule="MoviesApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="120" width="243" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <state key="normal" title="Register"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="appButtonTypeAdapter">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="registerTouched:" destination="s8i-Jb-Hbq" eventType="touchUpInside" id="Jss-Oc-fdj"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y1F-58-zDa">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y1F-58-zDa" customClass="AppButton" customModule="MoviesApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="160" width="243" height="30"/>
                                         <state key="normal" title="Cancel"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="appButtonTypeAdapter">
+                                                <integer key="value" value="0"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="cancelTouched:" destination="s8i-Jb-Hbq" eventType="touchUpInside" id="ifD-a9-TjQ"/>
                                         </connections>
@@ -122,7 +131,6 @@
                         <outlet property="cancelButton" destination="y1F-58-zDa" id="qB7-qN-DZZ"/>
                         <outlet property="confirmPasswordTextField" destination="YDT-EV-lhj" id="wgx-zJ-018"/>
                         <outlet property="passwordTextField" destination="F5R-Gy-gVJ" id="cUH-jX-8zP"/>
-                        <outlet property="registerButton" destination="8O0-5H-pp5" id="1Ar-t5-azI"/>
                         <outlet property="usernameTextField" destination="xvc-HT-7Rb" id="ZEx-vY-6lK"/>
                     </connections>
                 </viewController>
@@ -138,7 +146,7 @@
                         <viewControllerLayoutGuide type="top" id="zbV-G2-5ed"/>
                         <viewControllerLayoutGuide type="bottom" id="aUV-Uy-HP2"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="50G-OE-zhu">
+                    <view key="view" contentMode="scaleToFill" id="50G-OE-zhu" customClass="BackgroundView" customModule="MoviesApp" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="243" height="150"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -163,17 +171,27 @@
                                             <action selector="editingChanged:" destination="Vgc-1d-0qi" eventType="editingChanged" id="Jzk-aj-eiN"/>
                                         </connections>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xmz-QK-dfb">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xmz-QK-dfb" customClass="AppButton" customModule="MoviesApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="80" width="243" height="30"/>
                                         <state key="normal" title="Log In"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="appButtonTypeAdapter">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="logInTouched:" destination="Vgc-1d-0qi" eventType="touchUpInside" id="pPf-Ym-jT0"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o9P-Q5-aK0">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o9P-Q5-aK0" customClass="AppButton" customModule="MoviesApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="120" width="243" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <state key="normal" title="Register"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="appButtonTypeAdapter">
+                                                <integer key="value" value="0"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="registerTouched:" destination="Vgc-1d-0qi" eventType="touchUpInside" id="baJ-Rb-1cw"/>
                                         </connections>
@@ -191,7 +209,6 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="243" height="150"/>
                     <connections>
-                        <outlet property="logInButton" destination="Xmz-QK-dfb" id="F3G-Ek-RlL"/>
                         <outlet property="passwordTextField" destination="qca-N0-ZxM" id="Eqw-lS-m8A"/>
                         <outlet property="registerButton" destination="o9P-Q5-aK0" id="Zi4-CO-3Ls"/>
                         <outlet property="usernameTextField" destination="1fS-LP-70E" id="YoH-uV-5u2"/>

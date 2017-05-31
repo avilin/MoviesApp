@@ -17,13 +17,13 @@
                         <viewControllerLayoutGuide type="top" id="btK-6E-JLB"/>
                         <viewControllerLayoutGuide type="bottom" id="8Gw-JH-6RK"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="1nC-Xb-ys5">
+                    <view key="view" contentMode="scaleToFill" id="1nC-Xb-ys5" customClass="BackgroundView" customModule="MoviesApp" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8uG-BN-fan">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="16" minimumInteritemSpacing="16" id="zMh-AA-Vbz">
                                     <size key="itemSize" width="170" height="290"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>

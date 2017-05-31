@@ -13,7 +13,6 @@ class LoginViewController: UIViewController {
     // MARK: - IBOutlets
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var logInButton: UIButton!
     @IBOutlet weak var registerButton: UIButton!
 
     // MARK: - Properties
@@ -26,7 +25,6 @@ class LoginViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         initBindings()
-        styleScreen()
 
         if let parentView = self.parent?.view {
             activityIndicatorHelper.createActivityIndicator(in: parentView)
@@ -62,11 +60,6 @@ class LoginViewController: UIViewController {
         viewModel?.password.bindAndFireOnModelUpdated { [unowned self] (text) in
             self.passwordTextField.text = text
         }
-    }
-
-    func styleScreen() {
-        ViewStyler.style(formMainButton: logInButton)
-        ViewStyler.style(formButton: registerButton)
     }
 
 }

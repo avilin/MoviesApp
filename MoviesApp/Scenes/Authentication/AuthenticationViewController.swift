@@ -16,19 +16,7 @@ class AuthenticationViewController: UIViewController {
     // MARK: - Properties
     private weak var currentViewController: UIViewController?
 
-    // MARK: - Lifecycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        styleScreen()
-    }
-
     // MARK: - Custom functions
-    func styleScreen() {
-        ViewStyler.style(backgroudView: view)
-    }
-
     func changeContainer(_ viewController: UIViewController) {
         if let currentViewController = currentViewController {
             removeViewController(currentViewController)

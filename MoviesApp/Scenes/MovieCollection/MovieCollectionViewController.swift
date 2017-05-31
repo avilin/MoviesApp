@@ -28,7 +28,6 @@ class MovieCollectionViewController: UIViewController {
         automaticallyAdjustsScrollViewInsets = false
 
         initBindings()
-        styleScreen()
 
         activityIndicatorHelper.createActivityIndicator(in: view)
 
@@ -39,14 +38,6 @@ class MovieCollectionViewController: UIViewController {
     func initBindings() {
         viewModel?.movies.bindAndFireOnModelUpdated { [unowned self] _ in
             self.collectionView.reloadData()
-        }
-    }
-
-    func styleScreen() {
-        ViewStyler.style(backgroudView: view)
-        ViewStyler.style(backgroudView: collectionView)
-        if let navigationBar = navigationController?.navigationBar {
-            ViewStyler.style(navigationView: navigationBar)
         }
     }
 
