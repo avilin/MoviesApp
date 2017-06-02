@@ -18,7 +18,7 @@ class RegisterViewController: UIViewController {
 
     // MARK: - Properties
     var viewModel: RegisterViewModel?
-    var activityIndicatorHelper = ActivityIndicatorHelper()
+    fileprivate let activityIndicator = AppActivityIndicator()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +27,7 @@ class RegisterViewController: UIViewController {
         initBindings()
 
         if let parentView = self.parent?.view {
-            activityIndicatorHelper.createActivityIndicator(in: parentView)
+            activityIndicator.configure(for: parentView)
         }
     }
 
@@ -82,11 +82,11 @@ extension RegisterViewController: RegisterEventsDelegate {
     }
 
     func showActivityIndicator() {
-        activityIndicatorHelper.showActivityIndicator()
+        activityIndicator.show()
     }
 
     func hideActivityIndicator() {
-        activityIndicatorHelper.hideActivityIndicator()
+        activityIndicator.hide()
     }
 
 }

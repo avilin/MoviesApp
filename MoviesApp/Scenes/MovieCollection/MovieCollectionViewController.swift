@@ -18,7 +18,7 @@ class MovieCollectionViewController: UIViewController {
 
     // MARK: - Properties
     var viewModel: MovieCollectionViewModel?
-    var activityIndicatorHelper = ActivityIndicatorHelper()
+    fileprivate let activityIndicator = AppActivityIndicator()
     fileprivate let refreshControl = UIRefreshControl()
 
     // MARK: - Lifecycle
@@ -30,8 +30,6 @@ class MovieCollectionViewController: UIViewController {
 
         initBindings()
 
-        activityIndicatorHelper.createActivityIndicator(in: view)
-
         if #available(iOS 10.0, *) {
             collectionView.refreshControl = refreshControl
         } else {
@@ -39,6 +37,8 @@ class MovieCollectionViewController: UIViewController {
         }
         refreshControl.addTarget(self, action: #selector(MovieCollectionViewController.collectionViewPulledDown),
                                  for: .valueChanged)
+
+        activityIndicator.configure(for: view)
 
         //viewModel?.loadMovies()
     }
@@ -116,11 +116,11 @@ extension MovieCollectionViewController: MovieCollectionEventsDelegate {
     }
 
     func showActivityIndicator() {
-        activityIndicatorHelper.showActivityIndicator()
+        activityIndicator.show()
     }
 
     func hideActivityIndicator() {
-        activityIndicatorHelper.hideActivityIndicator()
+        activityIndicator.hide()
         refreshControl.endRefreshing()
     }
 

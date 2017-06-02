@@ -9,11 +9,11 @@
 import UIKit
 import ChameleonFramework
 
-class ActivityIndicatorHelper {
+class AppActivityIndicator {
 
     private let container = UIView()
 
-    func createActivityIndicator(in view: UIView) {
+    func configure(for view: UIView) {
         container.frame = view.frame
         container.center = view.center
         container.backgroundColor = FlatWhite().withAlphaComponent(0.3)
@@ -36,11 +36,11 @@ class ActivityIndicatorHelper {
         actInd.startAnimating()
     }
 
-    func showActivityIndicator() {
+    func show() {
         container.isHidden = false
     }
 
-    func hideActivityIndicator() {
+    func hide() {
         container.isHidden = true
     }
 }

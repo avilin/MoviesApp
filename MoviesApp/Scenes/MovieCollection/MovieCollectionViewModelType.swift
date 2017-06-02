@@ -26,6 +26,7 @@ class MovieCollectionViewModelType: MovieCollectionViewModel {
     }
 
     func loadMovies() {
+        movieCollectionEventsDelegate?.showActivityIndicator()
         movieService.loadMovies(successCallback: { [unowned self] moviesResponse in
             self.movies.value = moviesResponse
             self.movieCollectionEventsDelegate?.hideActivityIndicator()
