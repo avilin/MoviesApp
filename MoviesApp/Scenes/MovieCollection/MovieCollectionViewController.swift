@@ -19,6 +19,7 @@ class MovieCollectionViewController: UIViewController {
     // MARK: - Properties
     var viewModel: MovieCollectionViewModel?
     var activityIndicatorHelper = ActivityIndicatorHelper()
+    fileprivate let refreshControl = UIRefreshControl()
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -31,7 +32,15 @@ class MovieCollectionViewController: UIViewController {
 
         activityIndicatorHelper.createActivityIndicator(in: view)
 
-        viewModel?.loadMovies()
+        if #available(iOS 10.0, *) {
+            collectionView.refreshControl = refreshControl
+        } else {
+            collectionView.addSubview(refreshControl)
+        }
+        refreshControl.addTarget(self, action: #selector(MovieCollectionViewController.collectionViewPulledDown),
+                                 for: .valueChanged)
+
+        //viewModel?.loadMovies()
     }
 
     // MARK: - Custom functions
@@ -39,6 +48,10 @@ class MovieCollectionViewController: UIViewController {
         viewModel?.movies.bindAndFireOnModelUpdated { [unowned self] _ in
             self.collectionView.reloadData()
         }
+    }
+
+    func collectionViewPulledDown() {
+        viewModel?.loadMovies()
     }
 
 }
@@ -108,6 +121,7 @@ extension MovieCollectionViewController: MovieCollectionEventsDelegate {
 
     func hideActivityIndicator() {
         activityIndicatorHelper.hideActivityIndicator()
+        refreshControl.endRefreshing()
     }
 
 }
