@@ -45,6 +45,7 @@
 		7C39510A1EC7A5A900693893 /* ValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3951091EC7A5A900693893 /* ValidationError.swift */; };
 		7C3C33131EB71584007C5F5E /* Binder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3C33121EB71584007C5F5E /* Binder.swift */; };
 		7C3F972C1EE20F140099DE0A /* AppActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3F972B1EE20F140099DE0A /* AppActivityIndicator.swift */; };
+		7C5D5D051EE2A723001B4C95 /* AppLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5D5D041EE2A723001B4C95 /* AppLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +91,7 @@
 		7C3951091EC7A5A900693893 /* ValidationError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidationError.swift; sourceTree = "<group>"; };
 		7C3C33121EB71584007C5F5E /* Binder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Binder.swift; sourceTree = "<group>"; };
 		7C3F972B1EE20F140099DE0A /* AppActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppActivityIndicator.swift; sourceTree = "<group>"; };
+		7C5D5D041EE2A723001B4C95 /* AppLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +242,7 @@
 				7C3F972B1EE20F140099DE0A /* AppActivityIndicator.swift */,
 				7C3435731EDCBA28005934EC /* BackgroundView.swift */,
 				7C3435751EDCBD70005934EC /* AppButton.swift */,
+				7C5D5D041EE2A723001B4C95 /* AppLabel.swift */,
 			);
 			path = AppCustomViews;
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 				7C39510A1EC7A5A900693893 /* ValidationError.swift in Sources */,
 				7C2621121EC2578F00D39BF7 /* ParserError.swift in Sources */,
 				7C3435761EDCBD70005934EC /* AppButton.swift in Sources */,
+				7C5D5D051EE2A723001B4C95 /* AppLabel.swift in Sources */,
 				7C258B3E1EC887A300FE9B7E /* RegisterEventsDelegate.swift in Sources */,
 				7C3C33131EB71584007C5F5E /* Binder.swift in Sources */,
 				7C2621141EC2578F00D39BF7 /* ResponseParser.swift in Sources */,

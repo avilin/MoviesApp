@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -100,6 +103,158 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cgS-ai-wme" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="56.799999999999997" y="-52.623688155922046"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="RAs-R2-1Ya">
+            <objects>
+                <viewController id="7E1-C1-fW0" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bGZ-DH-v4M"/>
+                        <viewControllerLayoutGuide type="bottom" id="XKU-JB-WKz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="K14-6I-Iz1" customClass="BackgroundView" customModule="MoviesApp" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0hI-ct-AO7">
+                                <rect key="frame" x="16" y="72" width="171.5" height="251.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="0hI-ct-AO7" secondAttribute="height" multiplier="17/25" id="lex-Ew-Tva"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="std-Ms-7bl">
+                                <rect key="frame" x="195" y="72" width="164" height="20.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Length" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nnd-1u-Iil" customClass="AppLabel" customModule="MoviesApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="118" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="appLabelTypeAdapter">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3H-Gf-ocy" customClass="AppLabel" customModule="MoviesApp" customModuleProvider="target">
+                                        <rect key="frame" x="118" y="0.0" width="46" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="appLabelTypeAdapter">
+                                                <integer key="value" value="0"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="wIe-va-mc0">
+                                <rect key="frame" x="195" y="108.5" width="164" height="20.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Release Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fBQ-IQ-KcV" customClass="AppLabel" customModule="MoviesApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="117" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="appLabelTypeAdapter">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EcL-yk-bnR" customClass="AppLabel" customModule="MoviesApp" customModuleProvider="target">
+                                        <rect key="frame" x="117" y="0.0" width="47" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="appLabelTypeAdapter">
+                                                <integer key="value" value="0"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="V8S-aN-nWW">
+                                <rect key="frame" x="195" y="145" width="164" height="20.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bFb-Ky-C5H" customClass="AppLabel" customModule="MoviesApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="82" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="appLabelTypeAdapter">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bsj-cf-PZl" customClass="AppLabel" customModule="MoviesApp" customModuleProvider="target">
+                                        <rect key="frame" x="82" y="0.0" width="82" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="appLabelTypeAdapter">
+                                                <integer key="value" value="0"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Synopsis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0YB-X5-hr4" customClass="AppLabel" customModule="MoviesApp" customModuleProvider="target">
+                                <rect key="frame" x="16" y="331" width="73" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="appLabelTypeAdapter">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oQz-zh-NXc" customClass="AppLabel" customModule="MoviesApp" customModuleProvider="target">
+                                <rect key="frame" x="16" y="359.5" width="343" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="appLabelTypeAdapter">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0hI-ct-AO7" firstAttribute="width" secondItem="K14-6I-Iz1" secondAttribute="width" multiplier="0.5" constant="-16" id="0B5-CC-V8s"/>
+                            <constraint firstItem="oQz-zh-NXc" firstAttribute="top" secondItem="0YB-X5-hr4" secondAttribute="bottom" constant="8" id="1ot-Oo-UM1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="std-Ms-7bl" secondAttribute="trailing" id="3ae-by-uCC"/>
+                            <constraint firstItem="oQz-zh-NXc" firstAttribute="leading" secondItem="K14-6I-Iz1" secondAttribute="leadingMargin" id="3kF-qc-ZQ9"/>
+                            <constraint firstItem="std-Ms-7bl" firstAttribute="top" secondItem="bGZ-DH-v4M" secondAttribute="bottom" constant="8" id="72w-hl-SzY"/>
+                            <constraint firstItem="wIe-va-mc0" firstAttribute="top" secondItem="std-Ms-7bl" secondAttribute="bottom" constant="16" id="BcR-x4-ojq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wIe-va-mc0" secondAttribute="trailing" id="CuS-pq-ZYZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="V8S-aN-nWW" secondAttribute="trailing" id="JsF-hJ-Fcj"/>
+                            <constraint firstItem="wIe-va-mc0" firstAttribute="leading" secondItem="0hI-ct-AO7" secondAttribute="trailing" constant="8" id="Nkw-kP-yvX"/>
+                            <constraint firstItem="0YB-X5-hr4" firstAttribute="leading" secondItem="K14-6I-Iz1" secondAttribute="leadingMargin" id="PSI-rb-crr"/>
+                            <constraint firstItem="0hI-ct-AO7" firstAttribute="top" secondItem="bGZ-DH-v4M" secondAttribute="bottom" constant="8" id="RDM-KE-79m"/>
+                            <constraint firstItem="V8S-aN-nWW" firstAttribute="top" secondItem="wIe-va-mc0" secondAttribute="bottom" constant="16" id="Rog-UQ-Wd5"/>
+                            <constraint firstItem="0YB-X5-hr4" firstAttribute="top" relation="greaterThanOrEqual" secondItem="V8S-aN-nWW" secondAttribute="bottom" id="ZCS-ws-8Y0"/>
+                            <constraint firstItem="std-Ms-7bl" firstAttribute="leading" secondItem="0hI-ct-AO7" secondAttribute="trailing" constant="8" id="ewU-jd-YNz"/>
+                            <constraint firstItem="V8S-aN-nWW" firstAttribute="leading" secondItem="0hI-ct-AO7" secondAttribute="trailing" constant="8" id="hnz-21-PSX"/>
+                            <constraint firstItem="0hI-ct-AO7" firstAttribute="leading" secondItem="K14-6I-Iz1" secondAttribute="leadingMargin" id="ngL-si-Agr"/>
+                            <constraint firstItem="0YB-X5-hr4" firstAttribute="top" secondItem="0hI-ct-AO7" secondAttribute="bottom" constant="8" id="yoS-g6-TaO"/>
+                            <constraint firstItem="oQz-zh-NXc" firstAttribute="top" secondItem="0YB-X5-hr4" secondAttribute="bottom" constant="8" id="zb6-sP-kmj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="oQz-zh-NXc" secondAttribute="trailing" id="zmx-0c-K7z"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="QCM-kp-Cw7"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Osa-vJ-PVZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="936.79999999999995" y="-53.523238380809602"/>
         </scene>
     </scenes>
 </document>

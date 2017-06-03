@@ -18,6 +18,10 @@ class MovieCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
 
+        configureView()
+    }
+
+    private func configureView() {
         layer.cornerRadius = 10
         backgroundColor = FlatWhiteDark()
         nameView.backgroundColor = FlatWhite()
