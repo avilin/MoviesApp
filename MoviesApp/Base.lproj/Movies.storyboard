@@ -86,7 +86,6 @@
                                         <connections>
                                             <outlet property="imageView" destination="l3b-UF-bFJ" id="OWi-8r-dbG"/>
                                             <outlet property="nameLabel" destination="Eog-1T-PKK" id="PYe-UR-gFd"/>
-                                            <outlet property="nameView" destination="fUl-Ux-HYd" id="eAJ-Jh-Lai"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -146,9 +145,6 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="appLabelTypeAdapter">
-                                                <integer key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="appLabelAppearanceAdapter">
                                                 <integer key="value" value="1"/>
                                             </userDefinedRuntimeAttribute>
@@ -160,9 +156,6 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="appLabelTypeAdapter">
-                                                <integer key="value" value="0"/>
-                                            </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="appLabelAppearanceAdapter">
                                                 <integer key="value" value="0"/>
                                             </userDefinedRuntimeAttribute>
@@ -179,9 +172,6 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="appLabelTypeAdapter">
-                                                <integer key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="appLabelAppearanceAdapter">
                                                 <integer key="value" value="1"/>
                                             </userDefinedRuntimeAttribute>
@@ -193,9 +183,6 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="appLabelTypeAdapter">
-                                                <integer key="value" value="0"/>
-                                            </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="appLabelAppearanceAdapter">
                                                 <integer key="value" value="0"/>
                                             </userDefinedRuntimeAttribute>
@@ -212,9 +199,6 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="appLabelTypeAdapter">
-                                                <integer key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="appLabelAppearanceAdapter">
                                                 <integer key="value" value="1"/>
                                             </userDefinedRuntimeAttribute>
@@ -226,9 +210,6 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="appLabelTypeAdapter">
-                                                <integer key="value" value="0"/>
-                                            </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="appLabelAppearanceAdapter">
                                                 <integer key="value" value="0"/>
                                             </userDefinedRuntimeAttribute>
@@ -245,9 +226,6 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="appLabelTypeAdapter">
-                                                <integer key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="appLabelAppearanceAdapter">
                                                 <integer key="value" value="3"/>
                                             </userDefinedRuntimeAttribute>
@@ -259,9 +237,6 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="appLabelTypeAdapter">
-                                                <integer key="value" value="0"/>
-                                            </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="appLabelAppearanceAdapter">
                                                 <integer key="value" value="2"/>
                                             </userDefinedRuntimeAttribute>

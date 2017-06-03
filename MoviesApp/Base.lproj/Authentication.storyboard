@@ -100,9 +100,6 @@
                                         <rect key="frame" x="0.0" y="120" width="243" height="30"/>
                                         <state key="normal" title="Register"/>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="appButtonTypeAdapter">
-                                                <integer key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="appButtonAppearanceAdapter">
                                                 <integer key="value" value="1"/>
                                             </userDefinedRuntimeAttribute>

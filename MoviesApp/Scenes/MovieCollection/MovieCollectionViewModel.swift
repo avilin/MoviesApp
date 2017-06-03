@@ -10,7 +10,7 @@ import Foundation
 
 protocol MovieCollectionViewModel {
 
-    var movies: Binder<[Movie]> { get }
+    var movies: ArrayBinder<MovieCellDTO> { get }
 
     func loadMovies()
 

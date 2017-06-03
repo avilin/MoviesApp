@@ -47,7 +47,7 @@ class MovieDetailViewController: UIViewController {
         }
 
         viewModel?.movieLength.bindAndFireOnModelUpdated { [unowned self] movieLength in
-            self.movieLengthLabel.text = "\(movieLength)"
+            self.movieLengthLabel.text = "\(movieLength) min"
         }
 
         viewModel?.releaseDate.bindAndFireOnModelUpdated { [unowned self] releaseDate in

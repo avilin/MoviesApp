@@ -11,10 +11,11 @@ import ChameleonFramework
 
 class MovieCell: UICollectionViewCell {
 
+    // MARK: - IBOutlets
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var nameView: UIView!
     @IBOutlet weak var nameLabel: UILabel!
 
+    // MARK: - Configuration
     override func awakeFromNib() {
         super.awakeFromNib()
 

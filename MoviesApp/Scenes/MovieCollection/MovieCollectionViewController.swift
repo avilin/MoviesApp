@@ -45,8 +45,20 @@ class MovieCollectionViewController: UIViewController {
 
     // MARK: - Custom functions
     func initBindings() {
-        viewModel?.movies.bindAndFireOnModelUpdated { [unowned self] _ in
+        viewModel?.movies.bindAndFireOnValueAssigned { [unowned self] _ in
             self.collectionView.reloadData()
+        }
+
+        viewModel?.movies.bindOnElementAdded { [unowned self] index in
+            self.collectionView.insertItems(at: [IndexPath(index: index)])
+        }
+
+        viewModel?.movies.bindOnElementRemoved { [unowned self] index in
+            self.collectionView.deleteItems(at: [IndexPath(index: index)])
+        }
+
+        viewModel?.movies.bindOnElementUpdated { [unowned self] index in
+            self.collectionView.reloadItems(at: [IndexPath(index: index)])
         }
     }
 

@@ -24,6 +24,7 @@ class Binder<T> {
         self.value = value
     }
 
+    // MARK: - Bindings
     func bindOnModelUpdated(_ onModelUpdated: OnUpdateEvent?) {
         self.onModelUpdated = onModelUpdated
     }
