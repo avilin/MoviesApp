@@ -39,7 +39,7 @@ class MovieDAORest: MovieDAO {
     }
 
     func findAll(successCallback: @escaping ([Movie]) -> Void, errorCallback: @escaping (String) -> Void) {
-        Alamofire.request("http://localhost:8080/MoviesAppRest/rest/movie").validate(statusCode: 200...200)
+        Alamofire.request(RestRouter.findAllMovies).validate(statusCode: 200...200)
             .responseJSON { [unowned self] response in
                 switch response.result {
                 case .success(let value):

@@ -22,13 +22,9 @@ class UserDAORest: UserDAO {
 
     func loginWith(username: String, password: String, successCallback: @escaping (User) -> Void,
                    errorCallback: @escaping (String) -> Void) {
-        let parameters: Parameters = [
-            "username": username,
-            "password": password
-        ]
 
-        Alamofire.request("http://localhost:8080/MoviesAppRest/rest/user/login", method: .post, parameters: parameters,
-            encoding: JSONEncoding.default).validate(statusCode: 200...200).responseJSON { [unowned self] response in
+        Alamofire.request(RestRouter.login(username: username, password: password)).validate(statusCode: 200...200)
+            .responseJSON { [unowned self] response in
                 switch response.result {
                 case .success(let value):
                     do {
@@ -51,14 +47,9 @@ class UserDAORest: UserDAO {
 
     func registerWith(username: String, password: String, successCallback: @escaping (User) -> Void,
                       errorCallback: @escaping (String) -> Void) {
-        let parameters: Parameters = [
-            "username": username,
-            "password": password
-        ]
 
-        Alamofire.request("http://localhost:8080/MoviesAppRest/rest/user/register", method: .post,
-            parameters: parameters, encoding: JSONEncoding.default).validate(statusCode: 200...200)
-            .responseJSON { [unowned self] response in
+        Alamofire.request(RestRouter.register(username: username, password: password))
+            .validate(statusCode: 200...200).responseJSON { [unowned self] response in
                 switch response.result {
                 case .success(let value):
                     do {

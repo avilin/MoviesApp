@@ -11,14 +11,16 @@ import SwiftyJSON
 
 class ResponseParser<T> {
 
-    func parse(value: Any, entityParser: (JSON) throws -> T) throws -> Response<T> {
+    typealias EntityParser = (JSON) throws -> T
+
+    func parse(value: Any, entityParser: EntityParser?) throws -> Response<T> {
         let json = JSON(value)
         if let status = json["status"].string, let message = json["message"].string {
             var entity: T? = nil
             if status == "OK" {
                 let data = json["data"]
                 do {
-                    entity = try entityParser(data)
+                    entity = try entityParser?(data)
                 } catch {
                     throw error
                 }
