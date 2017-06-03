@@ -10,15 +10,15 @@ import Foundation
 
 class LoginViewModelType: LoginViewModel {
 
-    weak var loginEventsDelegate: LoginEventsDelegate?
+    weak var backgroundTaskEventDelegate: BackgroundTaskEventDelegate?
     let userService: UserService
     let sceneRouter: SceneRouter
 
     let username: Binder<String>
     let password: Binder<String>
 
-    init(loginEventsDelegate: LoginEventsDelegate, userService: UserService, sceneRouter: SceneRouter) {
-        self.loginEventsDelegate = loginEventsDelegate
+    init(backgroundTaskEventDelegate: BackgroundTaskEventDelegate, userService: UserService, sceneRouter: SceneRouter) {
+        self.backgroundTaskEventDelegate = backgroundTaskEventDelegate
         self.userService = userService
         self.sceneRouter = sceneRouter
 
@@ -37,17 +37,17 @@ class LoginViewModelType: LoginViewModel {
     func logIn() {
         do {
             try userService.validateLogin(username: username.value, password: password.value)
-            loginEventsDelegate?.showActivityIndicator()
+            backgroundTaskEventDelegate?.showActivityIndicator()
             userService.loginWith(username: username.value, password: password.value,
                 successCallback: { [unowned self] in
-                    self.loginEventsDelegate?.hideActivityIndicator()
+                    self.backgroundTaskEventDelegate?.hideActivityIndicator()
                     self.sceneRouter.showMovieCollection()
                 }, errorCallback: { [unowned self] message in
-                    self.loginEventsDelegate?.hideActivityIndicator()
-                    self.loginEventsDelegate?.showAlert(title: "ERROR", message: message)
+                    self.backgroundTaskEventDelegate?.hideActivityIndicator()
+                    self.backgroundTaskEventDelegate?.showAlert(title: "ERROR", message: message)
                 })
         } catch {
-            loginEventsDelegate?.showAlert(title: "ERROR", message: "All fields are required")
+            backgroundTaskEventDelegate?.showAlert(title: "ERROR", message: "All fields are required")
         }
     }
 

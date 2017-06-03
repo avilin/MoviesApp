@@ -10,16 +10,16 @@ import Foundation
 
 class MovieCollectionViewModelType: MovieCollectionViewModel {
 
-    weak var movieCollectionEventsDelegate: MovieCollectionEventsDelegate?
+    weak var backgroundTaskEventDelegate: BackgroundTaskEventDelegate?
     let movieService: MovieService
     let sceneRouter: SceneRouter
 
     var movies: ArrayBinder<MovieCellDTO>
     private var movieList: [Movie] = []
 
-    init(movieCollectionEventsDelegate: MovieCollectionEventsDelegate, movieService: MovieService,
+    init(backgroundTaskEventDelegate: BackgroundTaskEventDelegate, movieService: MovieService,
          sceneRouter: SceneRouter) {
-        self.movieCollectionEventsDelegate = movieCollectionEventsDelegate
+        self.backgroundTaskEventDelegate = backgroundTaskEventDelegate
         self.movieService = movieService
         self.sceneRouter = sceneRouter
 
@@ -28,16 +28,16 @@ class MovieCollectionViewModelType: MovieCollectionViewModel {
     }
 
     func loadMovies() {
-        movieCollectionEventsDelegate?.showActivityIndicator()
+        backgroundTaskEventDelegate?.showActivityIndicator()
         movieService.loadMovies(successCallback: { [unowned self] moviesResponse in
             self.movieList = moviesResponse
             self.movies.assignValue(value: self.movieList.map { (movie) -> MovieCellDTO in
                 return self.movieToCellDTO(movie: movie)
             })
-            self.movieCollectionEventsDelegate?.hideActivityIndicator()
+            self.backgroundTaskEventDelegate?.hideActivityIndicator()
         }, errorCallback: { [unowned self] message in
-            self.movieCollectionEventsDelegate?.hideActivityIndicator()
-            self.movieCollectionEventsDelegate?.showAlert(title: "ERROR", message: message)
+            self.backgroundTaskEventDelegate?.hideActivityIndicator()
+            self.backgroundTaskEventDelegate?.showAlert(title: "ERROR", message: message)
         })
     }
 

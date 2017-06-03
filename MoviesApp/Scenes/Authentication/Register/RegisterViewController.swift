@@ -71,15 +71,7 @@ class RegisterViewController: UIViewController {
 }
 
 // MARK: - RegisterEventsDelegate
-extension RegisterViewController: RegisterEventsDelegate {
-
-    func showAlert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-        alert.addAction(cancelAction)
-
-        present(alert, animated: true)
-    }
+extension RegisterViewController: BackgroundTaskEventDelegate {
 
     func showActivityIndicator() {
         activityIndicator.show()

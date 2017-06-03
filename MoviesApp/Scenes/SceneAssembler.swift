@@ -38,8 +38,8 @@ class SceneAssembler {
                                                  withIdentifier: loginIdentifier)
 
         if let loginViewController = loginViewController as? LoginViewController {
-            let loginViewModel = LoginViewModelType(loginEventsDelegate: loginViewController, userService: userService,
-                                                    sceneRouter: sceneRouter)
+            let loginViewModel = LoginViewModelType(backgroundTaskEventDelegate: loginViewController,
+                                                    userService: userService, sceneRouter: sceneRouter)
             loginViewController.viewModel = loginViewModel
         }
 
@@ -51,7 +51,7 @@ class SceneAssembler {
                                                     withIdentifier: registerIdentifier)
 
         if let registerViewController = registerViewController as? RegisterViewController {
-            let registerViewModel = RegisterViewModelType(registerEventsDelegate: registerViewController,
+            let registerViewModel = RegisterViewModelType(backgroundTaskEventDelegate: registerViewController,
                                                        userService: userService, sceneRouter: sceneRouter)
             registerViewController.viewModel = registerViewModel
         }
@@ -65,7 +65,7 @@ class SceneAssembler {
 
         if let movieCollectionViewController = movieCollectionViewController as? MovieCollectionViewController {
             let movieCollectionViewModel = MovieCollectionViewModelType(
-                movieCollectionEventsDelegate: movieCollectionViewController, movieService: movieService,
+                backgroundTaskEventDelegate: movieCollectionViewController, movieService: movieService,
                 sceneRouter: sceneRouter)
 
             movieCollectionViewController.viewModel = movieCollectionViewModel
