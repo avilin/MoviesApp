@@ -64,7 +64,7 @@ class LoginViewController: UIViewController {
 
 }
 
-// MARK: - LoginEventsDelegate
+// MARK: - BackgroundTaskEventDelegate
 extension LoginViewController: BackgroundTaskEventDelegate {
 
     func showActivityIndicator() {

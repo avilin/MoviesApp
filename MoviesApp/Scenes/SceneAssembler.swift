@@ -73,12 +73,14 @@ class SceneAssembler {
         return movieCollectionViewController
     }
 
-    func assembleMovieDetail(movie: Movie) -> UIViewController {
+    func assembleMovieDetail(movie: Movie, onDeleteMovie: MovieDetailViewModelType.OnDeleteMovie?) -> UIViewController {
         let movieDetailViewController = viewController(inStoryboard: moviesStoryboardName,
                                                        withIdentifier: movieDetailIdentifier)
 
         if let movieDetailViewController = movieDetailViewController as? MovieDetailViewController {
-            let movieDetailViewModel = MovieDetailViewModelType(movie: movie)
+            let movieDetailViewModel = MovieDetailViewModelType(backgroundTaskEventDelegate: movieDetailViewController,
+                backNavigationEventDelegate: movieDetailViewController, movieService: movieService, movie: movie,
+                onDeleteMovie: onDeleteMovie)
 
             movieDetailViewController.viewModel = movieDetailViewModel
         }

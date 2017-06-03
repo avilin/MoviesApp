@@ -44,10 +44,12 @@ class LoginViewModelType: LoginViewModel {
                     self.sceneRouter.showMovieCollection()
                 }, errorCallback: { [unowned self] message in
                     self.backgroundTaskEventDelegate?.hideActivityIndicator()
-                    self.backgroundTaskEventDelegate?.showAlert(title: "ERROR", message: message)
+                    self.backgroundTaskEventDelegate?.showAlert(title: "ERROR", message: message,
+                                                                cancelActionText: "OK")
                 })
         } catch {
-            backgroundTaskEventDelegate?.showAlert(title: "ERROR", message: "All fields are required")
+            backgroundTaskEventDelegate?.showAlert(title: "ERROR", message: "All fields are required",
+                                                   cancelActionText: "OK")
         }
     }
 

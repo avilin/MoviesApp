@@ -70,7 +70,7 @@ class RegisterViewController: UIViewController {
 
 }
 
-// MARK: - RegisterEventsDelegate
+// MARK: - BackgroundTaskEventDelegate
 extension RegisterViewController: BackgroundTaskEventDelegate {
 
     func showActivityIndicator() {

@@ -12,7 +12,6 @@ class SceneRouter {
 
     private let window: UIWindow
     private let sceneAssembler: SceneAssembler
-    private weak var currentViewController: UIViewController?
 
     init(window: UIWindow, sceneAssembler: SceneAssembler) {
         self.window = window
@@ -21,13 +20,12 @@ class SceneRouter {
 
     private func showMain() {
         let authenticationViewController = sceneAssembler.assembleMain()
-        currentViewController = authenticationViewController
         window.rootViewController = authenticationViewController
         window.makeKeyAndVisible()
     }
 
     func showLogin() {
-        if let authenticationViewController = currentViewController as? AuthenticationViewController {
+        if let authenticationViewController = topViewController() as? AuthenticationViewController {
             let loginViewController = sceneAssembler.assembleLogin(sceneRouter: self)
             authenticationViewController.changeContainer(loginViewController)
         } else {
@@ -37,7 +35,7 @@ class SceneRouter {
     }
 
     func showRegister() {
-        if let authenticationViewController = currentViewController as? AuthenticationViewController {
+        if let authenticationViewController = topViewController() as? AuthenticationViewController {
             let registerViewController = sceneAssembler.assembleRegister(sceneRouter: self)
             authenticationViewController.changeContainer(registerViewController)
         } else {
@@ -48,19 +46,37 @@ class SceneRouter {
 
     func showMovieCollection() {
         let movieCollectionViewController = sceneAssembler.assembleMovieCollection(sceneRouter: self)
-        currentViewController = movieCollectionViewController
         let navigationController = UINavigationController(rootViewController: movieCollectionViewController)
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
     }
 
-    func showMovieDetail(movie: Movie) {
-        if let navigationController = currentViewController?.navigationController {
-            let movieDetailViewController = sceneAssembler.assembleMovieDetail(movie: movie)
+    func showMovieDetail(movie: Movie, onDeleteMovie: MovieDetailViewModelType.OnDeleteMovie?) {
+        if let navigationController = topViewController()?.navigationController {
+            let movieDetailViewController = sceneAssembler.assembleMovieDetail(movie: movie,
+                onDeleteMovie: onDeleteMovie)
+
             navigationController.pushViewController(movieDetailViewController, animated: true)
         }
-        // The user version should be tested enough to be sure that MovieDetail will only be shown from MovieCollection 
-        // using the NavigationController.
+        // MovieDetail will only be shown from MovieCollection using the NavigationController.
+        // Otherwise, something has been done wrong.
+    }
+
+    private func topViewController(base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController)
+        -> UIViewController? {
+
+        if let nav = base as? UINavigationController {
+            return topViewController(base: nav.visibleViewController)
+        }
+        if let tab = base as? UITabBarController {
+            if let selected = tab.selectedViewController {
+                return topViewController(base: selected)
+            }
+        }
+        if let presented = base?.presentedViewController {
+            return topViewController(base: presented)
+        }
+        return base
     }
 
 }

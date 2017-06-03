@@ -29,7 +29,7 @@ class MovieCollectionViewModelType: MovieCollectionViewModel {
 
     func loadMovies() {
         backgroundTaskEventDelegate?.showActivityIndicator()
-        movieService.loadMovies(successCallback: { [unowned self] moviesResponse in
+        movieService.loadAll(successCallback: { [unowned self] moviesResponse in
             self.movieList = moviesResponse
             self.movies.assignValue(value: self.movieList.map { (movie) -> MovieCellDTO in
                 return self.movieToCellDTO(movie: movie)
@@ -37,13 +37,25 @@ class MovieCollectionViewModelType: MovieCollectionViewModel {
             self.backgroundTaskEventDelegate?.hideActivityIndicator()
         }, errorCallback: { [unowned self] message in
             self.backgroundTaskEventDelegate?.hideActivityIndicator()
-            self.backgroundTaskEventDelegate?.showAlert(title: "ERROR", message: message)
+            self.backgroundTaskEventDelegate?.showAlert(title: "ERROR", message: message, cancelActionText: "OK")
         })
     }
 
     func selectMovie(at indexPath: IndexPath) {
         let movie = movieList[indexPath.row]
-        sceneRouter.showMovieDetail(movie: movie)
+        sceneRouter.showMovieDetail(movie: movie) { [unowned self] (movieID) in
+            self.deleteMovie(withID: movieID)
+        }
+    }
+
+    func deleteMovie(withID movieID: Int) {
+        let index = movieList.index { (movie) -> Bool in
+            return movie.movieID == movieID
+        }
+
+        if let index = index {
+            movies.removeElement(at: index)
+        }
     }
 
     private func movieToCellDTO(movie: Movie) -> MovieCellDTO {

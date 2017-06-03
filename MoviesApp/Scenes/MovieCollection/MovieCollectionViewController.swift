@@ -50,15 +50,15 @@ class MovieCollectionViewController: UIViewController {
         }
 
         viewModel?.movies.bindOnElementAdded { [unowned self] index in
-            self.collectionView.insertItems(at: [IndexPath(index: index)])
+            self.collectionView.insertItems(at: [IndexPath(row: index, section: 0)])
         }
 
         viewModel?.movies.bindOnElementRemoved { [unowned self] index in
-            self.collectionView.deleteItems(at: [IndexPath(index: index)])
+            self.collectionView.deleteItems(at: [IndexPath(row: index, section: 0)])
         }
 
         viewModel?.movies.bindOnElementUpdated { [unowned self] index in
-            self.collectionView.reloadItems(at: [IndexPath(index: index)])
+            self.collectionView.reloadItems(at: [IndexPath(row: index, section: 0)])
         }
     }
 
@@ -116,7 +116,7 @@ extension MovieCollectionViewController: UICollectionViewDelegateFlowLayout {
 
 }
 
-// MARK: - MovieCollectionEventsDelegate
+// MARK: - BackgroundTaskEventDelegate
 extension MovieCollectionViewController: BackgroundTaskEventDelegate {
 
     func showActivityIndicator() {

@@ -16,8 +16,12 @@ class MovieService {
         self.movieDAO = movieDAO
     }
 
-    func loadMovies(successCallback: @escaping ([Movie]) -> Void, errorCallback: @escaping (String) -> Void) {
+    func loadAll(successCallback: @escaping ([Movie]) -> Void, errorCallback: @escaping (String) -> Void) {
         movieDAO.findAll(successCallback: successCallback, errorCallback: errorCallback)
+    }
+
+    func delete(movieID: Int, successCallback: @escaping () -> Void, errorCallback: @escaping (String) -> Void) {
+        movieDAO.delete(movieID: movieID, successCallback: successCallback, errorCallback: errorCallback)
     }
 
 }

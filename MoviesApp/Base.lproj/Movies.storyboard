@@ -218,7 +218,7 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F9e-Db-Uwo" customClass="BackgroundView" customModule="MoviesApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="339.5" width="375" height="327.5"/>
+                                <rect key="frame" x="0.0" y="339" width="375" height="284"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Synopsis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0YB-X5-hr4" customClass="AppLabel" customModule="MoviesApp" customModuleProvider="target">
                                         <rect key="frame" x="16" y="16" width="343" height="20.5"/>
@@ -259,6 +259,16 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0OZ-rE-2WW">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem title="Delete" id="LjB-hW-MeB">
+                                        <connections>
+                                            <action selector="deleteTouched:" destination="7E1-C1-fW0" id="kqk-Pd-I5M"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -267,15 +277,18 @@
                             <constraint firstAttribute="trailingMargin" secondItem="std-Ms-7bl" secondAttribute="trailing" id="3ae-by-uCC"/>
                             <constraint firstAttribute="trailing" secondItem="F9e-Db-Uwo" secondAttribute="trailing" id="4Iu-vg-Wht"/>
                             <constraint firstItem="std-Ms-7bl" firstAttribute="top" secondItem="bGZ-DH-v4M" secondAttribute="bottom" constant="8" id="72w-hl-SzY"/>
-                            <constraint firstItem="XKU-JB-WKz" firstAttribute="top" secondItem="F9e-Db-Uwo" secondAttribute="bottom" id="8HA-SF-ijM"/>
                             <constraint firstItem="F9e-Db-Uwo" firstAttribute="leading" secondItem="K14-6I-Iz1" secondAttribute="leading" id="8WQ-sv-aV8"/>
                             <constraint firstItem="wIe-va-mc0" firstAttribute="top" secondItem="std-Ms-7bl" secondAttribute="bottom" constant="16" id="BcR-x4-ojq"/>
                             <constraint firstAttribute="trailingMargin" secondItem="wIe-va-mc0" secondAttribute="trailing" id="CuS-pq-ZYZ"/>
                             <constraint firstItem="F9e-Db-Uwo" firstAttribute="top" secondItem="0hI-ct-AO7" secondAttribute="bottom" constant="16" id="DZp-5q-Vi0"/>
                             <constraint firstAttribute="trailingMargin" secondItem="V8S-aN-nWW" secondAttribute="trailing" id="JsF-hJ-Fcj"/>
+                            <constraint firstItem="0OZ-rE-2WW" firstAttribute="top" secondItem="F9e-Db-Uwo" secondAttribute="bottom" id="MGk-jA-viE"/>
+                            <constraint firstItem="0OZ-rE-2WW" firstAttribute="leading" secondItem="K14-6I-Iz1" secondAttribute="leading" id="MUa-9V-ljj"/>
                             <constraint firstItem="wIe-va-mc0" firstAttribute="leading" secondItem="0hI-ct-AO7" secondAttribute="trailing" constant="8" id="Nkw-kP-yvX"/>
                             <constraint firstItem="0hI-ct-AO7" firstAttribute="top" secondItem="bGZ-DH-v4M" secondAttribute="bottom" constant="8" id="RDM-KE-79m"/>
+                            <constraint firstAttribute="trailing" secondItem="0OZ-rE-2WW" secondAttribute="trailing" id="RX9-iZ-LYg"/>
                             <constraint firstItem="V8S-aN-nWW" firstAttribute="top" secondItem="wIe-va-mc0" secondAttribute="bottom" constant="16" id="Rog-UQ-Wd5"/>
+                            <constraint firstItem="XKU-JB-WKz" firstAttribute="top" secondItem="0OZ-rE-2WW" secondAttribute="bottom" id="YMf-F0-hHL"/>
                             <constraint firstItem="std-Ms-7bl" firstAttribute="leading" secondItem="0hI-ct-AO7" secondAttribute="trailing" constant="8" id="ewU-jd-YNz"/>
                             <constraint firstItem="V8S-aN-nWW" firstAttribute="leading" secondItem="0hI-ct-AO7" secondAttribute="trailing" constant="8" id="hnz-21-PSX"/>
                             <constraint firstItem="0hI-ct-AO7" firstAttribute="leading" secondItem="K14-6I-Iz1" secondAttribute="leadingMargin" id="ngL-si-Agr"/>

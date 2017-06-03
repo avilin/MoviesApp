@@ -20,6 +20,7 @@ class MovieDetailViewController: UIViewController {
 
     // MARK: - Properties
     var viewModel: MovieDetailViewModel?
+    fileprivate let activityIndicator = AppActivityIndicator()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,18 @@ class MovieDetailViewController: UIViewController {
         imageView.image = #imageLiteral(resourceName: "movieImagePlaceholder")
 
         initBindings()
+
+        activityIndicator.configure(for: view)
+    }
+
+    // MARK: - IBActions
+    @IBAction func deleteTouched(_ sender: UIBarButtonItem) {
+        let alertAction = UIAlertAction(title: "Delete", style: .destructive) { [unowned self] _ in
+            self.viewModel?.delete()
+        }
+        showAlert(title: "Delete Movie",
+                  message: "This action cannot be undone, ¿do you still want to continue?",
+                  cancelActionText: "Cancel", alertStyle: .actionSheet, alertActions: alertAction)
     }
 
     // MARK: - Custom functions
@@ -57,6 +70,28 @@ class MovieDetailViewController: UIViewController {
         viewModel?.genre.bindAndFireOnModelUpdated { [unowned self] genre in
             self.genreLabel.text = genre
         }
+    }
+
+}
+
+// MARK: - BackgroundTaskEventDelegate
+extension MovieDetailViewController: BackgroundTaskEventDelegate {
+
+    func showActivityIndicator() {
+        activityIndicator.show()
+    }
+
+    func hideActivityIndicator() {
+        activityIndicator.hide()
+    }
+
+}
+
+// MARK: - BackNavigationEventDelegate
+extension MovieDetailViewController: BackNavigationEventDelegate {
+
+    func goBack() {
+        navigationController?.popViewController(animated: true)
     }
 
 }

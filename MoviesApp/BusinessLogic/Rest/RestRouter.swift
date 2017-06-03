@@ -13,6 +13,7 @@ enum RestRouter: URLRequestConvertible {
     case login(username: String, password: String)
     case register(username: String, password: String)
     case findAllMovies
+    case deleteMovie(movieID: Int)
 
     static let baseURLString = "http://localhost:8080/MoviesAppRest/rest"
 
@@ -22,6 +23,8 @@ enum RestRouter: URLRequestConvertible {
             return .post
         case .findAllMovies:
             return .get
+        case .deleteMovie:
+            return .delete
         }
     }
 
@@ -33,6 +36,8 @@ enum RestRouter: URLRequestConvertible {
             return "/user/register"
         case .findAllMovies:
             return "/movie"
+        case .deleteMovie(let movieID):
+            return "/movie/\(movieID)"
         }
     }
 

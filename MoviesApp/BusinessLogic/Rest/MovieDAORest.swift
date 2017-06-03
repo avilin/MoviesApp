@@ -62,4 +62,27 @@ class MovieDAORest: MovieDAO {
         }
     }
 
+    func delete(movieID: Int, successCallback: @escaping () -> Void, errorCallback: @escaping (String) -> Void) {
+        Alamofire.request(RestRouter.deleteMovie(movieID: movieID)).validate(statusCode: 200...200)
+            .responseJSON { response in
+                switch response.result {
+                case .success(let value):
+                    do {
+                        let jsonResponse = try ResponseParser<Any>().parse(value: value, entityParser: nil)
+                        if jsonResponse.status == "OK" {
+                            successCallback()
+                        } else if jsonResponse.status == "ERROR" {
+                            errorCallback(jsonResponse.message)
+                        } else {
+                            errorCallback("There has been a problem with the service. Try again later.")
+                        }
+                    } catch {
+                        errorCallback("There has been a problem with the service. Try again later.")
+                    }
+                case .failure:
+                    errorCallback("There has been a problem with the service. Try again later.")
+                }
+        }
+    }
+
 }

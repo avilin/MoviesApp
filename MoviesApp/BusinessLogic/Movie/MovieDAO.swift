@@ -11,5 +11,6 @@ import Foundation
 protocol MovieDAO {
 
     func findAll(successCallback: @escaping ([Movie]) -> Void, errorCallback: @escaping (String) -> Void)
+    func delete(movieID: Int, successCallback: @escaping () -> Void, errorCallback: @escaping (String) -> Void)
 
 }

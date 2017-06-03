@@ -51,16 +51,21 @@ class RegisterViewModelType: RegisterViewModel {
                     self.sceneRouter.showMovieCollection()
                 }, errorCallback: { [unowned self] message in
                     self.backgroundTaskEventDelegate?.hideActivityIndicator()
-                    self.backgroundTaskEventDelegate?.showAlert(title: "ERROR", message: message)
+                    self.backgroundTaskEventDelegate?.showAlert(title: "ERROR", message: message,
+                                                                cancelActionText: "OK")
                 })
         } catch ValidationError.emptyValues {
-            backgroundTaskEventDelegate?.showAlert(title: "ERROR", message: "All fields are required")
+            backgroundTaskEventDelegate?.showAlert(title: "ERROR", message: "All fields are required",
+                                                   cancelActionText: "OK")
         } catch ValidationError.shortUsername {
-            backgroundTaskEventDelegate?.showAlert(title: "ERROR", message: "Username length must be 5 or more")
+            backgroundTaskEventDelegate?.showAlert(title: "ERROR", message: "Username length must be 5 or more",
+                                                   cancelActionText: "OK")
         } catch ValidationError.differentPasswords {
-            backgroundTaskEventDelegate?.showAlert(title: "ERROR", message: "Passwords must be the same")
+            backgroundTaskEventDelegate?.showAlert(title: "ERROR", message: "Passwords must be the same",
+                                                   cancelActionText: "OK")
         } catch ValidationError.shortPassword {
-            backgroundTaskEventDelegate?.showAlert(title: "ERROR", message: "Passwords length must be 5 or more")
+            backgroundTaskEventDelegate?.showAlert(title: "ERROR", message: "Passwords length must be 5 or more",
+                                                   cancelActionText: "OK")
         } catch {
 
         }

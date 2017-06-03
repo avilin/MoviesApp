@@ -17,4 +17,6 @@ protocol MovieDetailViewModel {
     var genre: Binder<String> { get }
     var imageURL: Binder<String?> { get }
 
+    func delete()
+
 }
