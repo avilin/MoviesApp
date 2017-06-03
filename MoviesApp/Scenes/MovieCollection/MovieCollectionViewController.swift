@@ -40,7 +40,7 @@ class MovieCollectionViewController: UIViewController {
 
         activityIndicator.configure(for: view)
 
-        //viewModel?.loadMovies()
+        viewModel?.loadMovies()
     }
 
     // MARK: - Custom functions
@@ -94,7 +94,7 @@ extension MovieCollectionViewController: UICollectionViewDataSource {
 extension MovieCollectionViewController: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
+        viewModel?.selectMovie(at: indexPath)
     }
 
 }

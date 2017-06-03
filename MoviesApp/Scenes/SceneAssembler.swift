@@ -17,6 +17,7 @@ class SceneAssembler {
     private let loginIdentifier = "Login"
     private let registerIdentifier = "Register"
     private let movieCollectionIdentifier = "MovieCollection"
+    private let movieDetailIdentifier = "MovieDetail"
 
     private let userService: UserService
     private let movieService: MovieService
@@ -70,6 +71,18 @@ class SceneAssembler {
             movieCollectionViewController.viewModel = movieCollectionViewModel
         }
         return movieCollectionViewController
+    }
+
+    func assembleMovieDetail(movie: Movie) -> UIViewController {
+        let movieDetailViewController = viewController(inStoryboard: moviesStoryboardName,
+                                                       withIdentifier: movieDetailIdentifier)
+
+        if let movieDetailViewController = movieDetailViewController as? MovieDetailViewController {
+            let movieDetailViewModel = MovieDetailViewModelType(movie: movie)
+
+            movieDetailViewController.viewModel = movieDetailViewModel
+        }
+        return movieDetailViewController
     }
 
     private func viewController(inStoryboard storyboardName: String, withIdentifier identifier: String)

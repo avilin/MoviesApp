@@ -53,4 +53,14 @@ class SceneRouter {
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
     }
+
+    func showMovieDetail(movie: Movie) {
+        if let navigationController = currentViewController?.navigationController {
+            let movieDetailViewController = sceneAssembler.assembleMovieDetail(movie: movie)
+            navigationController.pushViewController(movieDetailViewController, animated: true)
+        }
+        // The user version should be tested enough to be sure that MovieDetail will only be shown from MovieCollection 
+        // using the NavigationController.
+    }
+
 }

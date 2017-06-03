@@ -55,16 +55,16 @@ class RegisterViewController: UIViewController {
 
     // MARK: - Custom functions
     func initBindings() {
-        viewModel?.username.bindAndFireOnModelUpdated { [unowned self] (text) in
-            self.usernameTextField.text = text
+        viewModel?.username.bindAndFireOnModelUpdated { [unowned self] username in
+            self.usernameTextField.text = username
         }
 
-        viewModel?.password.bindAndFireOnModelUpdated { [unowned self] (text) in
-            self.passwordTextField.text = text
+        viewModel?.password.bindAndFireOnModelUpdated { [unowned self] password in
+            self.passwordTextField.text = password
         }
 
-        viewModel?.confirmPassword.bindAndFireOnModelUpdated { [unowned self] (text) in
-            self.confirmPasswordTextField.text = text
+        viewModel?.confirmPassword.bindAndFireOnModelUpdated { [unowned self] confirmPassword in
+            self.confirmPasswordTextField.text = confirmPassword
         }
     }
 

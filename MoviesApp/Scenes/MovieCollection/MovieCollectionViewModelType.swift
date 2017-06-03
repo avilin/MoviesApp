@@ -36,4 +36,9 @@ class MovieCollectionViewModelType: MovieCollectionViewModel {
         })
     }
 
+    func selectMovie(at indexPath: IndexPath) {
+        let movie = movies.value[indexPath.row]
+        sceneRouter.showMovieDetail(movie: movie)
+    }
+
 }

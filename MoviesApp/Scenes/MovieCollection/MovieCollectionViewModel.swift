@@ -14,4 +14,6 @@ protocol MovieCollectionViewModel {
 
     func loadMovies()
 
+    func selectMovie(at indexPath: IndexPath)
+
 }
