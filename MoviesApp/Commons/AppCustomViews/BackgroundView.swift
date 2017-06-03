@@ -12,6 +12,17 @@ import ChameleonFramework
 @IBDesignable
 class BackgroundView: UIView {
 
+    var appearance: BackgroundAppearance = .blue
+
+    @IBInspectable var backgroundAppearanceAdapter: Int {
+        get {
+            return appearance.rawValue
+        }
+        set(index) {
+            self.appearance = BackgroundAppearance(rawValue: index) ?? .blue
+        }
+    }
+
     override func awakeFromNib() {
         super.awakeFromNib()
 
@@ -25,7 +36,17 @@ class BackgroundView: UIView {
     }
 
     private func configureView() {
-        backgroundColor = FlatSkyBlue()
+        switch appearance {
+        case .blue:
+            backgroundColor = FlatSkyBlue()
+        case .white:
+            backgroundColor = FlatWhite()
+        }
     }
 
+}
+
+enum BackgroundAppearance: Int {
+    case blue
+    case white
 }

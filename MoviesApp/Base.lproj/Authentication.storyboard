@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -40,6 +40,11 @@
                             <constraint firstItem="Ad5-XV-NKq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="59" id="hUb-3C-dru"/>
                             <constraint firstItem="tbX-mE-jhg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hUd-6I-aBU"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="backgroundAppearanceAdapter">
+                                <integer key="value" value="0"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
                         <outlet property="containerView" destination="Ad5-XV-NKq" id="e8t-SH-cfx"/>
@@ -98,6 +103,9 @@
                                             <userDefinedRuntimeAttribute type="number" keyPath="appButtonTypeAdapter">
                                                 <integer key="value" value="1"/>
                                             </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="appButtonAppearanceAdapter">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="registerTouched:" destination="s8i-Jb-Hbq" eventType="touchUpInside" id="Jss-Oc-fdj"/>
@@ -108,6 +116,9 @@
                                         <state key="normal" title="Cancel"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="appButtonTypeAdapter">
+                                                <integer key="value" value="0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="appButtonAppearanceAdapter">
                                                 <integer key="value" value="0"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
@@ -124,6 +135,11 @@
                             <constraint firstItem="mTS-Pa-ycR" firstAttribute="top" secondItem="xuq-0k-u35" secondAttribute="top" id="eix-vc-UI3"/>
                             <constraint firstItem="mTS-Pa-ycR" firstAttribute="leading" secondItem="xuq-0k-u35" secondAttribute="leading" id="fCG-AB-uWi"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="backgroundAppearanceAdapter">
+                                <integer key="value" value="0"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="243" height="190"/>
@@ -178,6 +194,9 @@
                                             <userDefinedRuntimeAttribute type="number" keyPath="appButtonTypeAdapter">
                                                 <integer key="value" value="1"/>
                                             </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="appButtonAppearanceAdapter">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="logInTouched:" destination="Vgc-1d-0qi" eventType="touchUpInside" id="pPf-Ym-jT0"/>
@@ -189,6 +208,9 @@
                                         <state key="normal" title="Register"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="appButtonTypeAdapter">
+                                                <integer key="value" value="0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="appButtonAppearanceAdapter">
                                                 <integer key="value" value="0"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
@@ -205,6 +227,11 @@
                             <constraint firstAttribute="bottom" secondItem="vbR-ad-dny" secondAttribute="bottom" id="DCn-1A-4h5"/>
                             <constraint firstItem="vbR-ad-dny" firstAttribute="top" secondItem="50G-OE-zhu" secondAttribute="top" id="Emc-d8-Gh4"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="backgroundAppearanceAdapter">
+                                <integer key="value" value="0"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="243" height="150"/>

@@ -23,9 +23,6 @@ class MovieCell: UICollectionViewCell {
 
     private func configureView() {
         layer.cornerRadius = 10
-        backgroundColor = FlatWhiteDark()
-        nameView.backgroundColor = FlatWhite()
-        nameLabel.textColor = FlatSkyBlue()
     }
 
 }

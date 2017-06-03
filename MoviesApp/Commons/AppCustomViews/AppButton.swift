@@ -12,14 +12,14 @@ import ChameleonFramework
 @IBDesignable
 class AppButton: UIButton {
 
-    var appButtonType: AppButtonType = .normal
+    var appearance: AppButtonAppearance = .normal
 
-    @IBInspectable var appButtonTypeAdapter: Int {
+    @IBInspectable var appButtonAppearanceAdapter: Int {
         get {
-            return appButtonType.rawValue
+            return appearance.rawValue
         }
         set(index) {
-            self.appButtonType = AppButtonType(rawValue: index) ?? .normal
+            self.appearance = AppButtonAppearance(rawValue: index) ?? .normal
         }
     }
 
@@ -36,22 +36,19 @@ class AppButton: UIButton {
     }
 
     private func configureView() {
-        switch appButtonType {
+        switch appearance {
         case .normal:
             setTitleColor(FlatWhite(), for: .normal)
         case .important:
             backgroundColor = FlatWhite()
             setTitleColor(FlatSkyBlue(), for: .normal)
-        case .destructive:
-            break
         }
         layer.cornerRadius = 5
     }
 
 }
 
-enum AppButtonType: Int {
+enum AppButtonAppearance: Int {
     case normal
     case important
-    case destructive
 }

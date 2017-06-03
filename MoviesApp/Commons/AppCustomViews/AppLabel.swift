@@ -12,14 +12,14 @@ import ChameleonFramework
 @IBDesignable
 class AppLabel: UILabel {
 
-    var appLabelType: AppLabelType = .normalLight
+    var appearance: AppLabelAppearance = .normalWhite
 
-    @IBInspectable var appLabelTypeAdapter: Int {
+    @IBInspectable var appLabelAppearanceAdapter: Int {
         get {
-            return appLabelType.rawValue
+            return appearance.rawValue
         }
         set(index) {
-            self.appLabelType = AppLabelType(rawValue: index) ?? .normalLight
+            self.appearance = AppLabelAppearance(rawValue: index) ?? .normalWhite
         }
     }
 
@@ -36,18 +36,25 @@ class AppLabel: UILabel {
     }
 
     private func configureView() {
-        switch appLabelType {
-        case .normalLight:
+        switch appearance {
+        case .normalWhite:
             textColor = FlatWhite()
-        case .titleLight:
+        case .titleWhite:
             textColor = FlatWhite()
+            font = UIFont.boldSystemFont(ofSize: 17.0)
+        case .normalBlue:
+            textColor = FlatSkyBlue()
+        case .titleBlue:
+            textColor = FlatSkyBlue()
             font = UIFont.boldSystemFont(ofSize: 17.0)
         }
     }
 
 }
 
-enum AppLabelType: Int {
-    case normalLight
-    case titleLight
+enum AppLabelAppearance: Int {
+    case normalWhite
+    case titleWhite
+    case normalBlue
+    case titleBlue
 }
