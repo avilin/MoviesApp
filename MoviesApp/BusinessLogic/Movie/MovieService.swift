@@ -24,6 +24,22 @@ class MovieService {
         movieDAO.delete(movieID: movieID, successCallback: successCallback, errorCallback: errorCallback)
     }
 
+    func create(movie: Movie, imageURL: String?, imageData: Data?, successCallback: @escaping (Int) -> Void,
+                errorCallback: @escaping (String) -> Void) {
+
+        if let imageURL = imageURL {
+            ImageUploadRest.uploadImageURL(imageURL: imageURL, successCallback: { (imageURL, thumbnailImageURL) in
+                movie.imageURL = imageURL
+                movie.thumbnailImageURL = thumbnailImageURL
+                self.create(movie: movie, successCallback: successCallback, errorCallback: errorCallback)
+            }, errorCallback: errorCallback)
+        }
+    }
+
+    func create(movie: Movie, successCallback: @escaping (Int) -> Void, errorCallback: @escaping (String) -> Void) {
+        errorCallback("")
+    }
+
     // MARK: - Validations
     func validateMovieName(_ name: String) -> Bool {
         return !name.isEmpty

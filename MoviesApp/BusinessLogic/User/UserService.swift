@@ -71,4 +71,16 @@ class UserService {
         return userID != 0 && username != nil && password != nil
     }
 
+    func loggedUser() -> User? {
+        let storedUserID = UserDefaults.standard.integer(forKey: "userID")
+        let storedUsername = UserDefaults.standard.string(forKey: "username")
+        let storedAvatarURL = UserDefaults.standard.string(forKey: "avatarURL")
+
+        guard storedUserID != 0, let username = storedUsername else {
+            return nil
+        }
+        let user = User(userID: storedUserID, username: username, avatarURL: storedAvatarURL)
+        return user
+    }
+
 }

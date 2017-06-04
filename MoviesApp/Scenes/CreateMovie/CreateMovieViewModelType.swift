@@ -13,6 +13,7 @@ class CreateMovieViewModelType: CreateMovieViewModel {
     weak var backgroundTaskEventDelegate: BackgroundTaskEventDelegate?
     weak var backNavigationEventDelegate: BackNavigationEventDelegate?
     let movieService: MovieService
+    let userService: UserService
 
     typealias OnCreateMovie = (Movie) -> Void
     let onCreateMovie: OnCreateMovie?
@@ -29,11 +30,12 @@ class CreateMovieViewModelType: CreateMovieViewModel {
     let enableSave = Binder(false)
 
     init(backgroundTaskEventDelegate: BackgroundTaskEventDelegate,
-         backNavigationEventDelegate: BackNavigationEventDelegate, movieService: MovieService,
+         backNavigationEventDelegate: BackNavigationEventDelegate, movieService: MovieService, userService: UserService,
          onCreateMovie: OnCreateMovie?) {
         self.backgroundTaskEventDelegate = backgroundTaskEventDelegate
         self.backNavigationEventDelegate = backNavigationEventDelegate
         self.movieService = movieService
+        self.userService = userService
         self.onCreateMovie = onCreateMovie
 
         name = Binder("")
@@ -93,16 +95,27 @@ class CreateMovieViewModelType: CreateMovieViewModel {
     }
 
     func create() {
-//        backgroundTaskEventDelegate?.showActivityIndicator()
-//        let movie = Movie(movieID: 0, name: "", synopsis: "", movieLength: 0, releaseDate: 0, genre: "", imageURL: nil, thumbnailImageURL: nil, author: 1)
-//        movieService.create(movie: movie, successCallback: { [unowned self] in
-//            self.backgroundTaskEventDelegate?.hideActivityIndicator()
-//            self.backNavigationEventDelegate?.goBack()
-//            self.onCreateMovie?(self.movie.movieID)
-//            }, errorCallback: { [unowned self] message in
-//                self.backgroundTaskEventDelegate?.hideActivityIndicator()
-//                self.backgroundTaskEventDelegate?.showAlert(title: "ERROR", message: message, cancelActionText: "OK")
-//        })
+        backgroundTaskEventDelegate?.showActivityIndicator()
+        guard let user = userService.loggedUser() else {
+            self.backgroundTaskEventDelegate?.hideActivityIndicator()
+            self.backgroundTaskEventDelegate?.showAlert(title: "ERROR", message: "You must be logged to create a movie",
+                                                        cancelActionText: "OK")
+            return
+        }
+
+        let movie = Movie(name: name.value, synopsis: synopsis.value, movieLength: Int(movieLength.value)!,
+                          releaseDate: Int(releaseDate.value)!, genre: genre.value, author: user.userID)
+
+        movieService.create(movie: movie, imageURL: imageURL.value, imageData: imageData.value,
+            successCallback: { [unowned self] movieID in
+                self.backgroundTaskEventDelegate?.hideActivityIndicator()
+                self.backNavigationEventDelegate?.goBack()
+                movie.movieID = movieID
+                self.onCreateMovie?(movie)
+            }, errorCallback: { [unowned self] message in
+                self.backgroundTaskEventDelegate?.hideActivityIndicator()
+                self.backgroundTaskEventDelegate?.showAlert(title: "ERROR", message: message, cancelActionText: "OK")
+        })
     }
 
     func validate() -> Bool {

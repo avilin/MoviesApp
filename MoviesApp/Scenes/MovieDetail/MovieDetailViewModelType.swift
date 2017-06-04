@@ -45,10 +45,17 @@ class MovieDetailViewModelType: MovieDetailViewModel {
 
     func delete() {
         backgroundTaskEventDelegate?.showActivityIndicator()
-        movieService.delete(movieID: movie.movieID, successCallback: { [unowned self] in
+        guard let movieID = movie.movieID else {
+            self.backgroundTaskEventDelegate?.hideActivityIndicator()
+            self.backgroundTaskEventDelegate?.showAlert(title: "ERROR",
+                message: "This movie doesn't have an identifier. Reload the collection and try again",
+                cancelActionText: "OK")
+            return
+        }
+        movieService.delete(movieID: movieID, successCallback: { [unowned self] in
             self.backgroundTaskEventDelegate?.hideActivityIndicator()
             self.backNavigationEventDelegate?.goBack()
-            self.onDeleteMovie?(self.movie.movieID)
+            self.onDeleteMovie?(movieID)
         }, errorCallback: { [unowned self] message in
             self.backgroundTaskEventDelegate?.hideActivityIndicator()
             self.backgroundTaskEventDelegate?.showAlert(title: "ERROR", message: message, cancelActionText: "OK")

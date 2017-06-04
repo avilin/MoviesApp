@@ -98,7 +98,7 @@ class SceneAssembler {
         if let createMovieViewController = createMovieViewController as? CreateMovieViewController {
             let createMovieViewModel = CreateMovieViewModelType(backgroundTaskEventDelegate: createMovieViewController,
                                                                 backNavigationEventDelegate: createMovieViewController,
-                                                                movieService: movieService,
+                                                                movieService: movieService, userService: userService,
                                                                 onCreateMovie: onCreateMovie)
 
             createMovieViewController.viewModel = createMovieViewModel
