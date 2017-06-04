@@ -32,6 +32,9 @@
 		7C27575B1EDA0F8000C8AD3C /* MovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C27575A1EDA0F8000C8AD3C /* MovieService.swift */; };
 		7C27575D1EDA0FB800C8AD3C /* MovieDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C27575C1EDA0FB800C8AD3C /* MovieDAO.swift */; };
 		7C2796631EE47A79008E7917 /* ResponseStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2796621EE47A79008E7917 /* ResponseStatus.swift */; };
+		7C2796661EE48DD3008E7917 /* BackgroundAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2796651EE48DD3008E7917 /* BackgroundAppearance.swift */; };
+		7C2796681EE48E0D008E7917 /* AppLabelAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2796671EE48E0D008E7917 /* AppLabelAppearance.swift */; };
+		7C27966A1EE48E35008E7917 /* AppButtonAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2796691EE48E35008E7917 /* AppButtonAppearance.swift */; };
 		7C3435741EDCBA28005934EC /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3435731EDCBA28005934EC /* BackgroundView.swift */; };
 		7C3435761EDCBD70005934EC /* AppButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3435751EDCBD70005934EC /* AppButton.swift */; };
 		7C3C33131EB71584007C5F5E /* Binder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3C33121EB71584007C5F5E /* Binder.swift */; };
@@ -92,6 +95,9 @@
 		7C27575A1EDA0F8000C8AD3C /* MovieService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieService.swift; sourceTree = "<group>"; };
 		7C27575C1EDA0FB800C8AD3C /* MovieDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDAO.swift; sourceTree = "<group>"; };
 		7C2796621EE47A79008E7917 /* ResponseStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseStatus.swift; sourceTree = "<group>"; };
+		7C2796651EE48DD3008E7917 /* BackgroundAppearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundAppearance.swift; sourceTree = "<group>"; };
+		7C2796671EE48E0D008E7917 /* AppLabelAppearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLabelAppearance.swift; sourceTree = "<group>"; };
+		7C2796691EE48E35008E7917 /* AppButtonAppearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppButtonAppearance.swift; sourceTree = "<group>"; };
 		7C3435731EDCBA28005934EC /* BackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		7C3435751EDCBD70005934EC /* AppButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppButton.swift; sourceTree = "<group>"; };
 		7C3C33121EB71584007C5F5E /* Binder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Binder.swift; sourceTree = "<group>"; };
@@ -237,6 +243,16 @@
 			path = Movie;
 			sourceTree = "<group>";
 		};
+		7C2796641EE48DC2008E7917 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				7C2796691EE48E35008E7917 /* AppButtonAppearance.swift */,
+				7C2796671EE48E0D008E7917 /* AppLabelAppearance.swift */,
+				7C2796651EE48DD3008E7917 /* BackgroundAppearance.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
 		7C2B03AA1EC3871B005D3A55 /* MovieCollection */ = {
 			isa = PBXGroup;
 			children = (
@@ -257,6 +273,7 @@
 				7C58AEC71EE4250800D7CCB1 /* AppTableCell.swift */,
 				7C58AEC51EE4241900D7CCB1 /* AppTableView.swift */,
 				7C3435731EDCBA28005934EC /* BackgroundView.swift */,
+				7C2796641EE48DC2008E7917 /* Enums */,
 			);
 			path = AppCustomViews;
 			sourceTree = "<group>";
@@ -275,8 +292,8 @@
 		7C3C330F1EB71559007C5F5E /* Bindings */ = {
 			isa = PBXGroup;
 			children = (
-				7C3C33121EB71584007C5F5E /* Binder.swift */,
 				7C5D5D161EE2CF57001B4C95 /* ArrayBinder.swift */,
+				7C3C33121EB71584007C5F5E /* Binder.swift */,
 			);
 			path = Bindings;
 			sourceTree = "<group>";
@@ -540,8 +557,10 @@
 				7C258B3D1EC887A300FE9B7E /* LoginViewModelType.swift in Sources */,
 				7C211D431EB4F3C000232C08 /* AppDelegate.swift in Sources */,
 				7C5D5D331EE32870001B4C95 /* BackNavigationEventDelegate.swift in Sources */,
+				7C2796661EE48DD3008E7917 /* BackgroundAppearance.swift in Sources */,
 				7C5D5D121EE2CAF9001B4C95 /* MovieCell.swift in Sources */,
 				7C5D5D1A1EE30D04001B4C95 /* UIViewControlllerExtensionShowAlert.swift in Sources */,
+				7C2796681EE48E0D008E7917 /* AppLabelAppearance.swift in Sources */,
 				7C2757451ED9D2F800C8AD3C /* MovieCollectionViewController.swift in Sources */,
 				7C5D5D2E1EE31EC2001B4C95 /* ResponseParser.swift in Sources */,
 				7C258B391EC887A300FE9B7E /* AuthenticationViewController.swift in Sources */,
@@ -557,6 +576,7 @@
 				7C0BAD921EB694D3002AC8BA /* SceneRouter.swift in Sources */,
 				7C5D5D1D1EE3125C001B4C95 /* BackgroundTaskEventDelegate.swift in Sources */,
 				7C258B401EC887A300FE9B7E /* RegisterViewModel.swift in Sources */,
+				7C27966A1EE48E35008E7917 /* AppButtonAppearance.swift in Sources */,
 				7C5D5D301EE31EC2001B4C95 /* UserDAORest.swift in Sources */,
 				7C5D5D2B1EE31EC2001B4C95 /* MovieDAORest.swift in Sources */,
 			);

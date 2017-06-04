@@ -27,6 +27,10 @@ class RegisterViewModelType: RegisterViewModel {
         password = Binder("")
         confirmPassword = Binder("")
 
+        initBindings()
+    }
+
+    func initBindings() {
         username.bindOnViewUpdated { [unowned self] (string) in
             self.username.value = string
         }

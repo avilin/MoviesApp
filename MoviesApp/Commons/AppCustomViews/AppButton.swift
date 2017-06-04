@@ -47,8 +47,3 @@ class AppButton: UIButton {
     }
 
 }
-
-enum AppButtonAppearance: Int {
-    case normal
-    case important
-}

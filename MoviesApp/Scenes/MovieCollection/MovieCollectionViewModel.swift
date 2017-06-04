@@ -13,9 +13,7 @@ protocol MovieCollectionViewModel {
     var movies: ArrayBinder<MovieCellDTO> { get }
 
     func loadMovies()
-
     func selectMovie(at indexPath: IndexPath)
-
     func createMovie()
 
 }

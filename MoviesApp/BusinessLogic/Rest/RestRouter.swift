@@ -16,7 +16,7 @@ enum RestRouter: URLRequestConvertible {
     case deleteMovie(movieID: Int)
     case createMovie(movie: Movie, user: User)
 
-    static let baseURLString = "http://localhost:8080/MoviesAppRest/rest"
+    private static let baseURLString = "http://localhost:8080/MoviesAppRest/rest"
 
     var method: HTTPMethod {
         switch self {

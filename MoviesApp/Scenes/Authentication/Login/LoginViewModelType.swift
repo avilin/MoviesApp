@@ -25,6 +25,10 @@ class LoginViewModelType: LoginViewModel {
         username = Binder("")
         password = Binder("")
 
+        initBindings()
+    }
+
+    func initBindings() {
         username.bindOnViewUpdated { [unowned self] (string) in
             self.username.value = string
         }

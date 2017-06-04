@@ -12,12 +12,15 @@ import SwiftyJSON
 
 class ImageUploadRest {
 
+    private static let genericError = "There has been a problem uploading the image. Try again later."
+    private static let baseURL = "http://uploads.im/api"
+
     static func uploadImageData(imageData: Data, successCallback: @escaping (String, String) -> Void,
                                 errorCallback: @escaping (ResponseStatus, String) -> Void) {
 
         Alamofire.upload(multipartFormData: { multipartFormData in
             multipartFormData.append(imageData, withName: "image", fileName: "image.png", mimeType: "image/png")
-        }, to:"http://uploads.im/api", encodingCompletion: { (result) in
+        }, to: baseURL, encodingCompletion: { (result) in
             switch result {
             case .success(let upload, _, _):
                 upload.uploadProgress(closure: { (progress) in
@@ -33,14 +36,13 @@ class ImageUploadRest {
 
                             successCallback(imageURL, thumbnailImageURL)
                         } else {
-                            errorCallback(.error, "There has been a problem uploading the image. Try again later.")
-                        }
+                            errorCallback(.error, genericError)                        }
                     case .failure:
-                        errorCallback(.error, "There has been a problem uploading the image. Try again later.")
+                        errorCallback(.error, genericError)
                     }
                 }
             case .failure:
-                errorCallback(.error, "There has been a problem uploading the image. Try again later.")
+                errorCallback(.error, genericError)
             }
         })
     }
@@ -50,7 +52,7 @@ class ImageUploadRest {
 
         let parameters: Parameters = ["upload": imageURL]
 
-        Alamofire.request("http://uploads.im/api", parameters: parameters).validate(statusCode: 200...200)
+        Alamofire.request(baseURL, parameters: parameters).validate(statusCode: 200...200)
             .responseJSON { response in
                 switch response.result {
                 case .success(let value):
@@ -60,10 +62,10 @@ class ImageUploadRest {
 
                         successCallback(imageURL, thumbnailImageURL)
                     } else {
-                        errorCallback(.error, "There has been a problem uploading the image. Try again later.")
+                        errorCallback(.error, genericError)
                     }
                 case .failure:
-                    errorCallback(.error, "There has been a problem uploading the image. Try again later.")
+                    errorCallback(.error, genericError)
                 }
         }
     }

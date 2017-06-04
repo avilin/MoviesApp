@@ -50,6 +50,10 @@ class CreateMovieViewModelType: CreateMovieViewModel {
 
         imageData = Binder(nil)
 
+        initBindings()
+    }
+
+    func initBindings() {
         name.bindOnViewUpdated { [unowned self] (name) in
             self.name.value = name
             self.enableSave.value = self.validate()
@@ -94,7 +98,6 @@ class CreateMovieViewModelType: CreateMovieViewModel {
                 self.imageURL.value = self.imageURL.value
             }
         }
-
     }
 
     func create() {

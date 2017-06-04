@@ -12,6 +12,9 @@ import SwiftyJSON
 
 class MovieDAORest: MovieDAO {
 
+    private let genericError = "There has been a problem with the service. Try again later."
+    private let unauthorizedError = "Unauthorized. You need to log in again."
+
     var parseMovies = { (json: JSON) throws -> [Movie] in
         var movies: [Movie] = []
 
@@ -53,14 +56,13 @@ class MovieDAORest: MovieDAO {
                         } else if jsonResponse.status == .error {
                             errorCallback(jsonResponse.status, jsonResponse.message)
                         } else {
-                            errorCallback(jsonResponse.status,
-                                          "There has been a problem with the service. Try again later.")
+                            errorCallback(jsonResponse.status, self.genericError)
                         }
                     } catch {
-                        errorCallback(.error, "There has been a problem with the service. Try again later.")
+                        errorCallback(.error, self.genericError)
                     }
                 case .failure:
-                    errorCallback(.error, "There has been a problem with the service. Try again later.")
+                    errorCallback(.error, self.genericError)
                 }
         }
     }
@@ -79,14 +81,13 @@ class MovieDAORest: MovieDAO {
                         } else if jsonResponse.status == .error {
                             errorCallback(jsonResponse.status, jsonResponse.message)
                         } else {
-                            errorCallback(jsonResponse.status,
-                                          "There has been a problem with the service. Try again later.")
+                            errorCallback(jsonResponse.status, self.genericError)
                         }
                     } catch {
-                        errorCallback(.error, "There has been a problem with the service. Try again later.")
+                        errorCallback(.error, self.genericError)
                     }
                 case .failure:
-                    errorCallback(.error, "There has been a problem with the service. Try again later.")
+                    errorCallback(.error, self.genericError)
                 }
         }
     }
@@ -109,17 +110,16 @@ class MovieDAORest: MovieDAO {
                         } else if jsonResponse.status == .error {
                             errorCallback(jsonResponse.status, jsonResponse.message)
                         } else {
-                            errorCallback(jsonResponse.status,
-                                          "There has been a problem with the service. Try again later.")
+                            errorCallback(jsonResponse.status, self.genericError)
                         }
                     } catch {
-                        errorCallback(.error, "There has been a problem with the service. Try again later.")
+                        errorCallback(.error, self.genericError)
                     }
                 case .failure:
                     if response.response?.statusCode == 401 {
-                        errorCallback(.unauthorized, "Unauthorized. You need to log in again.")
+                        errorCallback(.unauthorized, self.unauthorizedError)
                     } else {
-                        errorCallback(.error, "There has been a problem with the service. Try again later.")
+                        errorCallback(.error, self.genericError)
                     }
                 }
         }

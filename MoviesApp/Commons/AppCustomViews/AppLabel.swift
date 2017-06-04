@@ -51,10 +51,3 @@ class AppLabel: UILabel {
     }
 
 }
-
-enum AppLabelAppearance: Int {
-    case normalWhite
-    case titleWhite
-    case normalBlue
-    case titleBlue
-}

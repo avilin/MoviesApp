@@ -12,6 +12,8 @@ import SwiftyJSON
 
 class UserDAORest: UserDAO {
 
+    private let genericError = "There has been a problem with the service. Try again later."
+
     var parseUser = { (json: JSON) throws -> User in
         guard let userID = json["id"].int, let username = json["username"].string else {
                 throw ParseError.entityFieldNotFound
@@ -34,14 +36,13 @@ class UserDAORest: UserDAO {
                         } else if jsonResponse.status == .error {
                             errorCallback(jsonResponse.status, jsonResponse.message)
                         } else {
-                            errorCallback(jsonResponse.status,
-                                          "There has been a problem with the service. Try again later.")
+                            errorCallback(jsonResponse.status, self.genericError)
                         }
                     } catch {
-                        errorCallback(.error, "There has been a problem with the service. Try again later.")
+                        errorCallback(.error, self.genericError)
                     }
                 case .failure:
-                    errorCallback(.error, "There has been a problem with the service. Try again later.")
+                    errorCallback(.error, self.genericError)
                 }
         }
     }
@@ -60,14 +61,13 @@ class UserDAORest: UserDAO {
                         } else if jsonResponse.status == .error {
                             errorCallback(jsonResponse.status, jsonResponse.message)
                         } else {
-                            errorCallback(jsonResponse.status,
-                                          "There has been a problem with the service. Try again later.")
+                            errorCallback(jsonResponse.status, self.genericError)
                         }
                     } catch {
-                        errorCallback(.error, "There has been a problem with the service. Try again later.")
+                        errorCallback(.error, self.genericError)
                     }
                 case .failure:
-                    errorCallback(.error, "There has been a problem with the service. Try again later.")
+                    errorCallback(.error, self.genericError)
                 }
         }
     }

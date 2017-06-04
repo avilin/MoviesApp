@@ -45,8 +45,3 @@ class BackgroundView: UIView {
     }
 
 }
-
-enum BackgroundAppearance: Int {
-    case blue
-    case white
-}

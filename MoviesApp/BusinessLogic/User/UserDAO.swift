@@ -10,7 +10,6 @@ protocol UserDAO {
 
     func loginWith(username: String, password: String, successCallback: @escaping (User) -> Void,
                    errorCallback: @escaping (ResponseStatus, String) -> Void)
-
     func registerWith(username: String, password: String, successCallback: @escaping (User) -> Void,
                       errorCallback: @escaping (ResponseStatus, String) -> Void)
 
