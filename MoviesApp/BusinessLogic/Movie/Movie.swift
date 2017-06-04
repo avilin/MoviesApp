@@ -14,13 +14,13 @@ class Movie {
     let name: String
     let synopsis: String
     let movieLength: Int
-    let releaseDate: String
+    let releaseDate: Int
     let genre: String
     let imageURL: String?
     let thumbnailImageURL: String?
     let author: Int
 
-    init(movieID: Int, name: String, synopsis: String, movieLength: Int, releaseDate: String, genre: String,
+    init(movieID: Int, name: String, synopsis: String, movieLength: Int, releaseDate: Int, genre: String,
          imageURL: String?, thumbnailImageURL: String?, author: Int) {
         self.movieID = movieID
         self.name = name

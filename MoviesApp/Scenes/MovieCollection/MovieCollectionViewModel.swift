@@ -16,4 +16,6 @@ protocol MovieCollectionViewModel {
 
     func selectMovie(at indexPath: IndexPath)
 
+    func createMovie()
+
 }

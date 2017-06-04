@@ -24,4 +24,21 @@ class MovieService {
         movieDAO.delete(movieID: movieID, successCallback: successCallback, errorCallback: errorCallback)
     }
 
+    // MARK: - Validations
+    func validateMovieName(_ name: String) -> Bool {
+        return !name.isEmpty
+    }
+
+    func validateMovieLength(_ movieLength: String) -> Bool {
+        return !movieLength.isEmpty && Int(movieLength) != nil
+    }
+
+    func validateMovieReleaseDate(_ releaseDate: String) -> Bool {
+        return !releaseDate.isEmpty && releaseDate.characters.count == 4 && Int(releaseDate) != nil
+    }
+
+    func validateMovieGenre(_ genre: String) -> Bool {
+        return !genre.isEmpty
+    }
+
 }

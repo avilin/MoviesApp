@@ -50,7 +50,7 @@ class MovieDetailViewController: UIViewController {
         }
 
         viewModel?.imageURL.bindAndFireOnModelUpdated { [unowned self] image in
-            if let image = image {
+            if let image = image, let url = URL(string: image), UIApplication.shared.canOpenURL(url) {
                 self.imageView.load.request(with: image)
             }
         }
@@ -64,7 +64,7 @@ class MovieDetailViewController: UIViewController {
         }
 
         viewModel?.releaseDate.bindAndFireOnModelUpdated { [unowned self] releaseDate in
-            self.releaseDateLabel.text = releaseDate
+            self.releaseDateLabel.text = "\(releaseDate)"
         }
 
         viewModel?.genre.bindAndFireOnModelUpdated { [unowned self] genre in

@@ -20,7 +20,7 @@ class MovieDetailViewModelType: MovieDetailViewModel {
     let name: Binder<String>
     let synopsis: Binder<String>
     let movieLength: Binder<Int>
-    let releaseDate: Binder<String>
+    let releaseDate: Binder<Int>
     let genre: Binder<String>
     let imageURL: Binder<String?>
 

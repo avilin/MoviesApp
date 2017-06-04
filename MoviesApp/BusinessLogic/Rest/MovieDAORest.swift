@@ -22,7 +22,7 @@ class MovieDAORest: MovieDAO {
         for movieJSON in jsonArray {
             guard let movieID = movieJSON["id"].int, let name = movieJSON["name"].string,
                 let synopsis = movieJSON["synopsis"].string, let movieLength = movieJSON["movieLength"].int,
-                let releaseDate = movieJSON["releaseDate"].string, let genre = movieJSON["genre"].string,
+                let releaseDate = movieJSON["releaseDate"].int, let genre = movieJSON["genre"].string,
                 let author = movieJSON["author"].int else {
 
                 throw ParseError.entityFieldNotFound

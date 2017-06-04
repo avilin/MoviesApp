@@ -43,6 +43,11 @@ class MovieCollectionViewController: UIViewController {
         viewModel?.loadMovies()
     }
 
+    // MARK: - IBActions
+    @IBAction func addTouched(_ sender: UIBarButtonItem) {
+        viewModel?.createMovie()
+    }
+
     // MARK: - Custom functions
     func initBindings() {
         viewModel?.movies.bindAndFireOnValueAssigned { [unowned self] _ in
@@ -91,7 +96,9 @@ extension MovieCollectionViewController: UICollectionViewDataSource {
 
         cell.imageView.image = #imageLiteral(resourceName: "movieImagePlaceholder")
         if let movie = viewModel?.movies.value[indexPath.row] {
-            if let thumbnailImageURL = movie.thumbnailImageURL {
+            if let thumbnailImageURL = movie.thumbnailImageURL, let url = URL(string: thumbnailImageURL),
+                UIApplication.shared.canOpenURL(url) {
+
                 cell.imageView.load.request(with: thumbnailImageURL)
             }
             cell.nameLabel.text = movie.name

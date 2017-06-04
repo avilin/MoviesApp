@@ -48,12 +48,24 @@ class MovieCollectionViewModelType: MovieCollectionViewModel {
         }
     }
 
+    func createMovie() {
+        sceneRouter.showCreateMovie { [unowned self] (movie) in
+            self.addMovie(movie)
+        }
+    }
+
+    func addMovie(_ movie: Movie) {
+        movieList.append(movie)
+        movies.addElement(movieToCellDTO(movie: movie))
+    }
+
     func deleteMovie(withID movieID: Int) {
         let index = movieList.index { (movie) -> Bool in
             return movie.movieID == movieID
         }
 
         if let index = index {
+            movieList.remove(at: index)
             movies.removeElement(at: index)
         }
     }

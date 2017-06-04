@@ -54,9 +54,19 @@ class SceneRouter {
     func showMovieDetail(movie: Movie, onDeleteMovie: MovieDetailViewModelType.OnDeleteMovie?) {
         if let navigationController = topViewController()?.navigationController {
             let movieDetailViewController = sceneAssembler.assembleMovieDetail(movie: movie,
-                onDeleteMovie: onDeleteMovie)
+                                                                               onDeleteMovie: onDeleteMovie)
 
             navigationController.pushViewController(movieDetailViewController, animated: true)
+        }
+        // MovieDetail will only be shown from MovieCollection using the NavigationController.
+        // Otherwise, something has been done wrong.
+    }
+
+    func showCreateMovie(onCreateMovie: CreateMovieViewModelType.OnCreateMovie?) {
+        if let navigationController = topViewController()?.navigationController {
+            let createMovieViewController = sceneAssembler.assembleCreateMovie(onCreateMovie: onCreateMovie)
+
+            navigationController.pushViewController(createMovieViewController, animated: true)
         }
         // MovieDetail will only be shown from MovieCollection using the NavigationController.
         // Otherwise, something has been done wrong.

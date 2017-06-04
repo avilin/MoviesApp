@@ -76,6 +76,7 @@
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                         <connections>
                                             <action selector="editingChanged:" destination="s8i-Jb-Hbq" eventType="editingChanged" id="1LP-ic-sjg"/>
+                                            <outlet property="delegate" destination="s8i-Jb-Hbq" id="vd4-vz-kgF"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F5R-Gy-gVJ">
@@ -85,6 +86,7 @@
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                                         <connections>
                                             <action selector="editingChanged:" destination="s8i-Jb-Hbq" eventType="editingChanged" id="mMQ-Rs-a76"/>
+                                            <outlet property="delegate" destination="s8i-Jb-Hbq" id="ZrN-aY-xa9"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YDT-EV-lhj">
@@ -94,6 +96,7 @@
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                                         <connections>
                                             <action selector="editingChanged:" destination="s8i-Jb-Hbq" eventType="editingChanged" id="2BG-Vq-iVq"/>
+                                            <outlet property="delegate" destination="s8i-Jb-Hbq" id="Xo4-5Q-eba"/>
                                         </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8O0-5H-pp5" customClass="AppButton" customModule="MoviesApp" customModuleProvider="target">
@@ -170,6 +173,7 @@
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                         <connections>
                                             <action selector="editingChanged:" destination="Vgc-1d-0qi" eventType="editingChanged" id="L78-0Q-qK5"/>
+                                            <outlet property="delegate" destination="Vgc-1d-0qi" id="uFF-2x-31S"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qca-N0-ZxM">
@@ -179,6 +183,7 @@
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                                         <connections>
                                             <action selector="editingChanged:" destination="Vgc-1d-0qi" eventType="editingChanged" id="Jzk-aj-eiN"/>
+                                            <outlet property="delegate" destination="Vgc-1d-0qi" id="gQT-LL-wS7"/>
                                         </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xmz-QK-dfb" customClass="AppButton" customModule="MoviesApp" customModuleProvider="target">

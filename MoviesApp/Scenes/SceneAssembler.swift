@@ -18,6 +18,7 @@ class SceneAssembler {
     private let registerIdentifier = "Register"
     private let movieCollectionIdentifier = "MovieCollection"
     private let movieDetailIdentifier = "MovieDetail"
+    private let createMovieIdentifier = "CreateMovie"
 
     private let userService: UserService
     private let movieService: MovieService
@@ -40,6 +41,7 @@ class SceneAssembler {
         if let loginViewController = loginViewController as? LoginViewController {
             let loginViewModel = LoginViewModelType(backgroundTaskEventDelegate: loginViewController,
                                                     userService: userService, sceneRouter: sceneRouter)
+
             loginViewController.viewModel = loginViewModel
         }
 
@@ -53,6 +55,7 @@ class SceneAssembler {
         if let registerViewController = registerViewController as? RegisterViewController {
             let registerViewModel = RegisterViewModelType(backgroundTaskEventDelegate: registerViewController,
                                                        userService: userService, sceneRouter: sceneRouter)
+
             registerViewController.viewModel = registerViewModel
         }
 
@@ -79,12 +82,28 @@ class SceneAssembler {
 
         if let movieDetailViewController = movieDetailViewController as? MovieDetailViewController {
             let movieDetailViewModel = MovieDetailViewModelType(backgroundTaskEventDelegate: movieDetailViewController,
-                backNavigationEventDelegate: movieDetailViewController, movieService: movieService, movie: movie,
-                onDeleteMovie: onDeleteMovie)
+                                                                backNavigationEventDelegate: movieDetailViewController,
+                                                                movieService: movieService, movie: movie,
+                                                                onDeleteMovie: onDeleteMovie)
 
             movieDetailViewController.viewModel = movieDetailViewModel
         }
         return movieDetailViewController
+    }
+
+    func assembleCreateMovie(onCreateMovie: CreateMovieViewModelType.OnCreateMovie?) -> UIViewController {
+        let createMovieViewController = viewController(inStoryboard: moviesStoryboardName,
+                                                       withIdentifier: createMovieIdentifier)
+
+        if let createMovieViewController = createMovieViewController as? CreateMovieViewController {
+            let createMovieViewModel = CreateMovieViewModelType(backgroundTaskEventDelegate: createMovieViewController,
+                                                                backNavigationEventDelegate: createMovieViewController,
+                                                                movieService: movieService,
+                                                                onCreateMovie: onCreateMovie)
+
+            createMovieViewController.viewModel = createMovieViewModel
+        }
+        return createMovieViewController
     }
 
     private func viewController(inStoryboard storyboardName: String, withIdentifier identifier: String)

@@ -52,6 +52,9 @@
 		7C5D5D301EE31EC2001B4C95 /* UserDAORest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5D5D291EE31EC2001B4C95 /* UserDAORest.swift */; };
 		7C5D5D311EE31EC2001B4C95 /* ValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5D5D2A1EE31EC2001B4C95 /* ValidationError.swift */; };
 		7C5D5D331EE32870001B4C95 /* BackNavigationEventDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5D5D321EE32870001B4C95 /* BackNavigationEventDelegate.swift */; };
+		7C5D5D361EE35414001B4C95 /* CreateMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5D5D351EE35414001B4C95 /* CreateMovieViewController.swift */; };
+		7C5D5D381EE35B0A001B4C95 /* CreateMovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5D5D371EE35B0A001B4C95 /* CreateMovieViewModel.swift */; };
+		7C5D5D3A1EE35B1C001B4C95 /* CreateMovieViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5D5D391EE35B1C001B4C95 /* CreateMovieViewModelType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,6 +107,9 @@
 		7C5D5D291EE31EC2001B4C95 /* UserDAORest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDAORest.swift; sourceTree = "<group>"; };
 		7C5D5D2A1EE31EC2001B4C95 /* ValidationError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidationError.swift; sourceTree = "<group>"; };
 		7C5D5D321EE32870001B4C95 /* BackNavigationEventDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackNavigationEventDelegate.swift; sourceTree = "<group>"; };
+		7C5D5D351EE35414001B4C95 /* CreateMovieViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateMovieViewController.swift; sourceTree = "<group>"; };
+		7C5D5D371EE35B0A001B4C95 /* CreateMovieViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateMovieViewModel.swift; sourceTree = "<group>"; };
+		7C5D5D391EE35B1C001B4C95 /* CreateMovieViewModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateMovieViewModelType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,6 +277,7 @@
 				7C258B2D1EC8878A00FE9B7E /* Authentication */,
 				7C2B03AA1EC3871B005D3A55 /* MovieCollection */,
 				7C5D5D061EE2AA8F001B4C95 /* MovieDetail */,
+				7C5D5D341EE353F6001B4C95 /* CreateMovie */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -331,6 +338,16 @@
 				7C5D5D271EE31EC2001B4C95 /* ResponseParser.swift */,
 			);
 			path = RestResponse;
+			sourceTree = "<group>";
+		};
+		7C5D5D341EE353F6001B4C95 /* CreateMovie */ = {
+			isa = PBXGroup;
+			children = (
+				7C5D5D351EE35414001B4C95 /* CreateMovieViewController.swift */,
+				7C5D5D371EE35B0A001B4C95 /* CreateMovieViewModel.swift */,
+				7C5D5D391EE35B1C001B4C95 /* CreateMovieViewModelType.swift */,
+			);
+			path = CreateMovie;
 			sourceTree = "<group>";
 		};
 		AF4F00AA479EAC87C1EE4045 /* Frameworks */ = {
@@ -482,6 +499,8 @@
 				7C2757561EDA0A3700C8AD3C /* UserService.swift in Sources */,
 				7C258B3B1EC887A300FE9B7E /* LoginViewController.swift in Sources */,
 				7C258B411EC887A300FE9B7E /* RegisterViewModelType.swift in Sources */,
+				7C5D5D381EE35B0A001B4C95 /* CreateMovieViewModel.swift in Sources */,
+				7C5D5D361EE35414001B4C95 /* CreateMovieViewController.swift in Sources */,
 				7C5D5D311EE31EC2001B4C95 /* ValidationError.swift in Sources */,
 				7C258B3F1EC887A300FE9B7E /* RegisterViewController.swift in Sources */,
 				7C2757531EDA0A3700C8AD3C /* User.swift in Sources */,
@@ -493,6 +512,7 @@
 				7C5D5D081EE2AAC9001B4C95 /* MovieDetailViewController.swift in Sources */,
 				7C3435761EDCBD70005934EC /* AppButton.swift in Sources */,
 				7C5D5D051EE2A723001B4C95 /* AppLabel.swift in Sources */,
+				7C5D5D3A1EE35B1C001B4C95 /* CreateMovieViewModelType.swift in Sources */,
 				7C3C33131EB71584007C5F5E /* Binder.swift in Sources */,
 				7C5D5D2C1EE31EC2001B4C95 /* ParserError.swift in Sources */,
 				7C5D5D2F1EE31EC2001B4C95 /* RestRouter.swift in Sources */,
