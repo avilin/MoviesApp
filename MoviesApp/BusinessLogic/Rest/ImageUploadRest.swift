@@ -12,8 +12,41 @@ import SwiftyJSON
 
 class ImageUploadRest {
 
+    static func uploadImageData(imageData: Data, successCallback: @escaping (String, String) -> Void,
+                                errorCallback: @escaping (String) -> Void) {
+
+        Alamofire.upload(multipartFormData: { multipartFormData in
+            multipartFormData.append(imageData, withName: "image", fileName: "image.png", mimeType: "image/png")
+        }, to:"http://uploads.im/api", encodingCompletion: { (result) in
+            switch result {
+            case .success(let upload, _, _):
+                upload.uploadProgress(closure: { (progress) in
+                    print("Upload Progress: \(progress.fractionCompleted)")
+                })
+
+                upload.responseJSON { response in
+                    switch response.result {
+                    case .success(let value):
+                        let json = JSON(value)
+                        if let imageURL = json["data"]["img_url"].string,
+                            let thumbnailImageURL = json["data"]["thumb_url"].string {
+
+                            successCallback(imageURL, thumbnailImageURL)
+                        } else {
+                            errorCallback("There has been a problem uploading the image. Try again later.")
+                        }
+                    case .failure:
+                        errorCallback("There has been a problem uploading the image. Try again later.")
+                    }
+                }
+            case .failure:
+                errorCallback("There has been a problem uploading the image. Try again later.")
+            }
+        })
+    }
+
     static func uploadImageURL(imageURL: String, successCallback: @escaping (String, String) -> Void,
-                        errorCallback: @escaping (String) -> Void) {
+                               errorCallback: @escaping (String) -> Void) {
 
         let parameters: Parameters = ["upload": imageURL]
 
@@ -34,5 +67,5 @@ class ImageUploadRest {
                 }
         }
     }
-    
+
 }

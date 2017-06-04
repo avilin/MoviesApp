@@ -143,7 +143,7 @@ extension CreateMovieViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let image = info[UIImagePickerControllerOriginalImage] as? UIImage
         imageView.image = image
-        if let image = image {
+        if let image = image?.resize(toWidth: 600) {
             let imageData = UIImagePNGRepresentation(image)
             viewModel?.imageData.onViewUpdated?(imageData)
         } else {

@@ -27,12 +27,20 @@ class MovieService {
     func create(movie: Movie, imageURL: String?, imageData: Data?, successCallback: @escaping (Int) -> Void,
                 errorCallback: @escaping (String) -> Void) {
 
-        if let imageURL = imageURL {
+        if let imageData = imageData {
+            ImageUploadRest.uploadImageData(imageData: imageData, successCallback: { (imageURL, thumbnailImageURL) in
+                movie.imageURL = imageURL
+                movie.thumbnailImageURL = thumbnailImageURL
+                self.create(movie: movie, successCallback: successCallback, errorCallback: errorCallback)
+            }, errorCallback: errorCallback)
+        } else if let imageURL = imageURL {
             ImageUploadRest.uploadImageURL(imageURL: imageURL, successCallback: { (imageURL, thumbnailImageURL) in
                 movie.imageURL = imageURL
                 movie.thumbnailImageURL = thumbnailImageURL
                 self.create(movie: movie, successCallback: successCallback, errorCallback: errorCallback)
             }, errorCallback: errorCallback)
+        } else {
+            create(movie: movie, successCallback: successCallback, errorCallback: errorCallback)
         }
     }
 
