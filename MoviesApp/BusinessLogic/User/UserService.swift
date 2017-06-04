@@ -41,7 +41,8 @@ class UserService {
     }
 
     func loginWith(username: String, password: String, successCallback: @escaping () -> Void,
-                   errorCallback: @escaping (String) -> Void) {
+                   errorCallback: @escaping (ResponseStatus, String) -> Void) {
+
         userDAO.loginWith(username: username, password: password, successCallback: { [unowned self] user in
             self.storeUser(user, password: password)
             successCallback()
@@ -49,7 +50,8 @@ class UserService {
     }
 
     func registerWith(username: String, password: String, successCallback: @escaping () -> Void,
-                      errorCallback: @escaping (String) -> Void) {
+                      errorCallback: @escaping (ResponseStatus, String) -> Void) {
+
         userDAO.registerWith(username: username, password: password, successCallback: { [unowned self] user in
             self.storeUser(user, password: password)
             successCallback()
@@ -74,12 +76,13 @@ class UserService {
     func loggedUser() -> User? {
         let storedUserID = UserDefaults.standard.integer(forKey: "userID")
         let storedUsername = UserDefaults.standard.string(forKey: "username")
+        let storedPassword = UserDefaults.standard.string(forKey: "password")
         let storedAvatarURL = UserDefaults.standard.string(forKey: "avatarURL")
 
-        guard storedUserID != 0, let username = storedUsername else {
+        guard storedUserID != 0, let username = storedUsername, let password = storedPassword else {
             return nil
         }
-        let user = User(userID: storedUserID, username: username, avatarURL: storedAvatarURL)
+        let user = User(userID: storedUserID, username: username, password: password, avatarURL: storedAvatarURL)
         return user
     }
 

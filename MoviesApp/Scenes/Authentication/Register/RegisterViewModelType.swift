@@ -49,7 +49,7 @@ class RegisterViewModelType: RegisterViewModel {
                 successCallback: { [unowned self] in
                     self.backgroundTaskEventDelegate?.hideActivityIndicator()
                     self.sceneRouter.showMovieCollection()
-                }, errorCallback: { [unowned self] message in
+                }, errorCallback: { [unowned self] _, message in
                     self.backgroundTaskEventDelegate?.hideActivityIndicator()
                     self.backgroundTaskEventDelegate?.showAlert(title: "ERROR", message: message,
                                                                 cancelActionText: "OK")

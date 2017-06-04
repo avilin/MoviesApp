@@ -10,11 +10,11 @@ import SwiftyJSON
 
 class Response<T> {
 
-    let status: String
+    let status: ResponseStatus
     let message: String
     let object: T?
 
-    init(status: String, message: String, object: T?) {
+    init(status: ResponseStatus, message: String, object: T?) {
         self.status = status
         self.message = message
         self.object = object

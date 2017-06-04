@@ -21,7 +21,7 @@ class UserDAORest: UserDAO {
     }
 
     func loginWith(username: String, password: String, successCallback: @escaping (User) -> Void,
-                   errorCallback: @escaping (String) -> Void) {
+                   errorCallback: @escaping (ResponseStatus, String) -> Void) {
 
         Alamofire.request(RestRouter.login(username: username, password: password)).validate(statusCode: 200...200)
             .responseJSON { [unowned self] response in
@@ -29,24 +29,25 @@ class UserDAORest: UserDAO {
                 case .success(let value):
                     do {
                         let jsonResponse = try ResponseParser<User>().parse(value: value, entityParser: self.parseUser)
-                        if jsonResponse.status == "OK", let user = jsonResponse.object {
+                        if jsonResponse.status == .ok, let user = jsonResponse.object {
                             successCallback(user)
-                        } else if jsonResponse.status == "ERROR" {
-                            errorCallback(jsonResponse.message)
+                        } else if jsonResponse.status == .error {
+                            errorCallback(jsonResponse.status, jsonResponse.message)
                         } else {
-                            errorCallback("There has been a problem with the service. Try again later.")
+                            errorCallback(jsonResponse.status,
+                                          "There has been a problem with the service. Try again later.")
                         }
                     } catch {
-                        errorCallback("There has been a problem with the service. Try again later.")
+                        errorCallback(.error, "There has been a problem with the service. Try again later.")
                     }
                 case .failure:
-                    errorCallback("There has been a problem with the service. Try again later.")
+                    errorCallback(.error, "There has been a problem with the service. Try again later.")
                 }
         }
     }
 
     func registerWith(username: String, password: String, successCallback: @escaping (User) -> Void,
-                      errorCallback: @escaping (String) -> Void) {
+                      errorCallback: @escaping (ResponseStatus, String) -> Void) {
 
         Alamofire.request(RestRouter.register(username: username, password: password))
             .validate(statusCode: 200...200).responseJSON { [unowned self] response in
@@ -54,18 +55,19 @@ class UserDAORest: UserDAO {
                 case .success(let value):
                     do {
                         let jsonResponse = try ResponseParser<User>().parse(value: value, entityParser: self.parseUser)
-                        if jsonResponse.status == "OK", let user = jsonResponse.object {
+                        if jsonResponse.status == .ok, let user = jsonResponse.object {
                             successCallback(user)
-                        } else if jsonResponse.status == "ERROR" {
-                            errorCallback(jsonResponse.message)
+                        } else if jsonResponse.status == .error {
+                            errorCallback(jsonResponse.status, jsonResponse.message)
                         } else {
-                            errorCallback("There has been a problem with the service. Try again later.")
+                            errorCallback(jsonResponse.status,
+                                          "There has been a problem with the service. Try again later.")
                         }
                     } catch {
-                        errorCallback("There has been a problem with the service. Try again later.")
+                        errorCallback(.error, "There has been a problem with the service. Try again later.")
                     }
                 case .failure:
-                    errorCallback("There has been a problem with the service. Try again later.")
+                    errorCallback(.error, "There has been a problem with the service. Try again later.")
                 }
         }
     }

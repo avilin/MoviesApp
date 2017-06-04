@@ -16,8 +16,9 @@ class ResponseParser<T> {
     func parse(value: Any, entityParser: EntityParser?) throws -> Response<T> {
         let json = JSON(value)
         if let status = json["status"].string, let message = json["message"].string {
+            let responseStatus = ResponseStatus(rawValue: status) ?? .error
             var entity: T? = nil
-            if status == "OK" {
+            if responseStatus == .ok {
                 let data = json["data"]
                 do {
                     entity = try entityParser?(data)
@@ -25,7 +26,7 @@ class ResponseParser<T> {
                     throw error
                 }
             }
-            let response = Response<T>(status: status, message: message, object: entity)
+            let response = Response<T>(status: responseStatus, message: message, object: entity)
             return response
         }
         throw ParseError.responseFieldNotFound

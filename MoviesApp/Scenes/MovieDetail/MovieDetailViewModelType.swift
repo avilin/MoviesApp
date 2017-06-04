@@ -56,7 +56,7 @@ class MovieDetailViewModelType: MovieDetailViewModel {
             self.backgroundTaskEventDelegate?.hideActivityIndicator()
             self.backNavigationEventDelegate?.goBack()
             self.onDeleteMovie?(movieID)
-        }, errorCallback: { [unowned self] message in
+        }, errorCallback: { [unowned self] _, message in
             self.backgroundTaskEventDelegate?.hideActivityIndicator()
             self.backgroundTaskEventDelegate?.showAlert(title: "ERROR", message: message, cancelActionText: "OK")
         })

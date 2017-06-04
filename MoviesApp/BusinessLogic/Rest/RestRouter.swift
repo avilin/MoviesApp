@@ -14,12 +14,13 @@ enum RestRouter: URLRequestConvertible {
     case register(username: String, password: String)
     case findAllMovies
     case deleteMovie(movieID: Int)
+    case createMovie(movie: Movie, user: User)
 
     static let baseURLString = "http://localhost:8080/MoviesAppRest/rest"
 
     var method: HTTPMethod {
         switch self {
-        case .login, .register:
+        case .login, .register, .createMovie:
             return .post
         case .findAllMovies:
             return .get
@@ -34,7 +35,7 @@ enum RestRouter: URLRequestConvertible {
             return "/user/login"
         case .register:
             return "/user/register"
-        case .findAllMovies:
+        case .findAllMovies, .createMovie:
             return "/movie"
         case .deleteMovie(let movieID):
             return "/movie/\(movieID)"
@@ -54,6 +55,27 @@ enum RestRouter: URLRequestConvertible {
                 "username": username,
                 "password": password
             ]
+            urlRequest = try JSONEncoding.default.encode(urlRequest, with: parameters)
+        case .createMovie(let movie, let user):
+            let parameters: Parameters = [
+                "name": movie.name,
+                "synopsis": movie.synopsis,
+                "movieLength": movie.movieLength,
+                "releaseDate": movie.releaseDate,
+                "genre": movie.genre,
+                "imageURL": movie.imageURL ?? "",
+                "thumbnailImageURL": movie.thumbnailImageURL ?? "",
+                "author": movie.author
+            ]
+
+            let plainString = "\(user.username):\(user.password)"
+            let plainData = plainString.data(using: String.Encoding.utf8)
+            let base64String = plainData?.base64EncodedString()
+
+            if let base64String = base64String {
+                urlRequest.setValue("Basic \(base64String)", forHTTPHeaderField: "Authorization")
+            }
+
             urlRequest = try JSONEncoding.default.encode(urlRequest, with: parameters)
         default:
             break

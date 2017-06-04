@@ -106,13 +106,13 @@ class CreateMovieViewModelType: CreateMovieViewModel {
         let movie = Movie(name: name.value, synopsis: synopsis.value, movieLength: Int(movieLength.value)!,
                           releaseDate: Int(releaseDate.value)!, genre: genre.value, author: user.userID)
 
-        movieService.create(movie: movie, imageURL: imageURL.value, imageData: imageData.value,
+        movieService.create(movie: movie, user: user, imageURL: imageURL.value, imageData: imageData.value,
             successCallback: { [unowned self] movieID in
                 self.backgroundTaskEventDelegate?.hideActivityIndicator()
                 self.backNavigationEventDelegate?.goBack()
                 movie.movieID = movieID
                 self.onCreateMovie?(movie)
-            }, errorCallback: { [unowned self] message in
+            }, errorCallback: { [unowned self] _, message in
                 self.backgroundTaskEventDelegate?.hideActivityIndicator()
                 self.backgroundTaskEventDelegate?.showAlert(title: "ERROR", message: message, cancelActionText: "OK")
         })

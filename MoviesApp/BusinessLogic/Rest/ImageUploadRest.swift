@@ -13,7 +13,7 @@ import SwiftyJSON
 class ImageUploadRest {
 
     static func uploadImageData(imageData: Data, successCallback: @escaping (String, String) -> Void,
-                                errorCallback: @escaping (String) -> Void) {
+                                errorCallback: @escaping (ResponseStatus, String) -> Void) {
 
         Alamofire.upload(multipartFormData: { multipartFormData in
             multipartFormData.append(imageData, withName: "image", fileName: "image.png", mimeType: "image/png")
@@ -33,20 +33,20 @@ class ImageUploadRest {
 
                             successCallback(imageURL, thumbnailImageURL)
                         } else {
-                            errorCallback("There has been a problem uploading the image. Try again later.")
+                            errorCallback(.error, "There has been a problem uploading the image. Try again later.")
                         }
                     case .failure:
-                        errorCallback("There has been a problem uploading the image. Try again later.")
+                        errorCallback(.error, "There has been a problem uploading the image. Try again later.")
                     }
                 }
             case .failure:
-                errorCallback("There has been a problem uploading the image. Try again later.")
+                errorCallback(.error, "There has been a problem uploading the image. Try again later.")
             }
         })
     }
 
     static func uploadImageURL(imageURL: String, successCallback: @escaping (String, String) -> Void,
-                               errorCallback: @escaping (String) -> Void) {
+                               errorCallback: @escaping (ResponseStatus, String) -> Void) {
 
         let parameters: Parameters = ["upload": imageURL]
 
@@ -60,10 +60,10 @@ class ImageUploadRest {
 
                         successCallback(imageURL, thumbnailImageURL)
                     } else {
-                        errorCallback("There has been a problem uploading the image. Try again later.")
+                        errorCallback(.error, "There has been a problem uploading the image. Try again later.")
                     }
                 case .failure:
-                    errorCallback("There has been a problem uploading the image. Try again later.")
+                    errorCallback(.error, "There has been a problem uploading the image. Try again later.")
                 }
         }
     }

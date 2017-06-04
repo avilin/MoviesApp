@@ -35,7 +35,7 @@ class MovieCollectionViewModelType: MovieCollectionViewModel {
                 return self.movieToCellDTO(movie: movie)
             })
             self.backgroundTaskEventDelegate?.hideActivityIndicator()
-        }, errorCallback: { [unowned self] message in
+        }, errorCallback: { [unowned self] _, message in
             self.backgroundTaskEventDelegate?.hideActivityIndicator()
             self.backgroundTaskEventDelegate?.showAlert(title: "ERROR", message: message, cancelActionText: "OK")
         })

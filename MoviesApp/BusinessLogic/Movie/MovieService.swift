@@ -16,36 +16,42 @@ class MovieService {
         self.movieDAO = movieDAO
     }
 
-    func loadAll(successCallback: @escaping ([Movie]) -> Void, errorCallback: @escaping (String) -> Void) {
+    func loadAll(successCallback: @escaping ([Movie]) -> Void,
+                 errorCallback: @escaping (ResponseStatus, String) -> Void) {
+
         movieDAO.findAll(successCallback: successCallback, errorCallback: errorCallback)
     }
 
-    func delete(movieID: Int, successCallback: @escaping () -> Void, errorCallback: @escaping (String) -> Void) {
+    func delete(movieID: Int, successCallback: @escaping () -> Void,
+                errorCallback: @escaping (ResponseStatus, String) -> Void) {
+
         movieDAO.delete(movieID: movieID, successCallback: successCallback, errorCallback: errorCallback)
     }
 
-    func create(movie: Movie, imageURL: String?, imageData: Data?, successCallback: @escaping (Int) -> Void,
-                errorCallback: @escaping (String) -> Void) {
+    func create(movie: Movie, user: User, imageURL: String?, imageData: Data?, successCallback: @escaping (Int) -> Void,
+                errorCallback: @escaping (ResponseStatus, String) -> Void) {
 
         if let imageData = imageData {
             ImageUploadRest.uploadImageData(imageData: imageData, successCallback: { (imageURL, thumbnailImageURL) in
                 movie.imageURL = imageURL
                 movie.thumbnailImageURL = thumbnailImageURL
-                self.create(movie: movie, successCallback: successCallback, errorCallback: errorCallback)
+                self.create(movie: movie, user: user, successCallback: successCallback, errorCallback: errorCallback)
             }, errorCallback: errorCallback)
-        } else if let imageURL = imageURL {
+        } else if let imageURL = imageURL, !imageURL.isEmpty {
             ImageUploadRest.uploadImageURL(imageURL: imageURL, successCallback: { (imageURL, thumbnailImageURL) in
                 movie.imageURL = imageURL
                 movie.thumbnailImageURL = thumbnailImageURL
-                self.create(movie: movie, successCallback: successCallback, errorCallback: errorCallback)
+                self.create(movie: movie, user: user, successCallback: successCallback, errorCallback: errorCallback)
             }, errorCallback: errorCallback)
         } else {
-            create(movie: movie, successCallback: successCallback, errorCallback: errorCallback)
+            create(movie: movie, user: user, successCallback: successCallback, errorCallback: errorCallback)
         }
     }
 
-    func create(movie: Movie, successCallback: @escaping (Int) -> Void, errorCallback: @escaping (String) -> Void) {
-        errorCallback("")
+    func create(movie: Movie, user: User, successCallback: @escaping (Int) -> Void,
+                errorCallback: @escaping (ResponseStatus, String) -> Void) {
+
+        movieDAO.create(movie: movie, user: user, successCallback: successCallback, errorCallback: errorCallback)
     }
 
     // MARK: - Validations
