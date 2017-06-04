@@ -45,11 +45,11 @@ class LoginViewModelType: LoginViewModel {
                 }, errorCallback: { [unowned self] _, message in
                     self.backgroundTaskEventDelegate?.hideActivityIndicator()
                     self.backgroundTaskEventDelegate?.showAlert(title: "ERROR", message: message,
-                                                                cancelActionText: "OK")
+                                                                cancelActionText: "OK", cancelAction: nil)
                 })
         } catch {
             backgroundTaskEventDelegate?.showAlert(title: "ERROR", message: "All fields are required",
-                                                   cancelActionText: "OK")
+                                                   cancelActionText: "OK", cancelAction: nil)
         }
     }
 

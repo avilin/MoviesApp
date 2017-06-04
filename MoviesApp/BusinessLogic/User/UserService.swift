@@ -86,4 +86,11 @@ class UserService {
         return user
     }
 
+    func logOut() {
+        UserDefaults.standard.removeObject(forKey: "userID")
+        UserDefaults.standard.removeObject(forKey: "username")
+        UserDefaults.standard.removeObject(forKey: "password")
+        UserDefaults.standard.removeObject(forKey: "avatarURL")
+    }
+
 }

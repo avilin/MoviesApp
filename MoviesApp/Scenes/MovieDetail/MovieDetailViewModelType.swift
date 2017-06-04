@@ -49,7 +49,7 @@ class MovieDetailViewModelType: MovieDetailViewModel {
             self.backgroundTaskEventDelegate?.hideActivityIndicator()
             self.backgroundTaskEventDelegate?.showAlert(title: "ERROR",
                 message: "This movie doesn't have an identifier. Reload the collection and try again",
-                cancelActionText: "OK")
+                cancelActionText: "OK", cancelAction: nil)
             return
         }
         movieService.delete(movieID: movieID, successCallback: { [unowned self] in
@@ -58,7 +58,8 @@ class MovieDetailViewModelType: MovieDetailViewModel {
             self.onDeleteMovie?(movieID)
         }, errorCallback: { [unowned self] _, message in
             self.backgroundTaskEventDelegate?.hideActivityIndicator()
-            self.backgroundTaskEventDelegate?.showAlert(title: "ERROR", message: message, cancelActionText: "OK")
+            self.backgroundTaskEventDelegate?.showAlert(title: "ERROR", message: message, cancelActionText: "OK",
+                                                        cancelAction: nil)
         })
     }
 

@@ -64,7 +64,8 @@ class SceneRouter {
 
     func showCreateMovie(onCreateMovie: CreateMovieViewModelType.OnCreateMovie?) {
         if let navigationController = topViewController()?.navigationController {
-            let createMovieViewController = sceneAssembler.assembleCreateMovie(onCreateMovie: onCreateMovie)
+            let createMovieViewController = sceneAssembler.assembleCreateMovie(sceneRouter: self,
+                                                                               onCreateMovie: onCreateMovie)
 
             navigationController.pushViewController(createMovieViewController, animated: true)
         }

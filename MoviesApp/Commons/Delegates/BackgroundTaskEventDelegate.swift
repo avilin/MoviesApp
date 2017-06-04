@@ -10,7 +10,7 @@ import Foundation
 
 protocol BackgroundTaskEventDelegate: NSObjectProtocol {
 
-    func showAlert(title: String, message: String, cancelActionText: String)
+    func showAlert(title: String, message: String, cancelActionText: String, cancelAction: (() -> Void)?)
     func showActivityIndicator()
     func hideActivityIndicator()
 

@@ -37,7 +37,8 @@ class MovieCollectionViewModelType: MovieCollectionViewModel {
             self.backgroundTaskEventDelegate?.hideActivityIndicator()
         }, errorCallback: { [unowned self] _, message in
             self.backgroundTaskEventDelegate?.hideActivityIndicator()
-            self.backgroundTaskEventDelegate?.showAlert(title: "ERROR", message: message, cancelActionText: "OK")
+            self.backgroundTaskEventDelegate?.showAlert(title: "ERROR", message: message, cancelActionText: "OK",
+                                                        cancelAction: nil)
         })
     }
 

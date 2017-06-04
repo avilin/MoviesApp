@@ -91,7 +91,9 @@ class SceneAssembler {
         return movieDetailViewController
     }
 
-    func assembleCreateMovie(onCreateMovie: CreateMovieViewModelType.OnCreateMovie?) -> UIViewController {
+    func assembleCreateMovie(sceneRouter: SceneRouter, onCreateMovie: CreateMovieViewModelType.OnCreateMovie?)
+        -> UIViewController {
+
         let createMovieViewController = viewController(inStoryboard: moviesStoryboardName,
                                                        withIdentifier: createMovieIdentifier)
 
@@ -99,7 +101,7 @@ class SceneAssembler {
             let createMovieViewModel = CreateMovieViewModelType(backgroundTaskEventDelegate: createMovieViewController,
                                                                 backNavigationEventDelegate: createMovieViewController,
                                                                 movieService: movieService, userService: userService,
-                                                                onCreateMovie: onCreateMovie)
+                                                                onCreateMovie: onCreateMovie, sceneRouter: sceneRouter)
 
             createMovieViewController.viewModel = createMovieViewModel
         }

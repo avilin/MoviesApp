@@ -52,20 +52,20 @@ class RegisterViewModelType: RegisterViewModel {
                 }, errorCallback: { [unowned self] _, message in
                     self.backgroundTaskEventDelegate?.hideActivityIndicator()
                     self.backgroundTaskEventDelegate?.showAlert(title: "ERROR", message: message,
-                                                                cancelActionText: "OK")
+                                                                cancelActionText: "OK", cancelAction: nil)
                 })
         } catch ValidationError.emptyValues {
             backgroundTaskEventDelegate?.showAlert(title: "ERROR", message: "All fields are required",
-                                                   cancelActionText: "OK")
+                                                   cancelActionText: "OK", cancelAction: nil)
         } catch ValidationError.shortUsername {
             backgroundTaskEventDelegate?.showAlert(title: "ERROR", message: "Username length must be 5 or more",
-                                                   cancelActionText: "OK")
+                                                   cancelActionText: "OK", cancelAction: nil)
         } catch ValidationError.differentPasswords {
             backgroundTaskEventDelegate?.showAlert(title: "ERROR", message: "Passwords must be the same",
-                                                   cancelActionText: "OK")
+                                                   cancelActionText: "OK", cancelAction: nil)
         } catch ValidationError.shortPassword {
             backgroundTaskEventDelegate?.showAlert(title: "ERROR", message: "Passwords length must be 5 or more",
-                                                   cancelActionText: "OK")
+                                                   cancelActionText: "OK", cancelAction: nil)
         } catch {
 
         }

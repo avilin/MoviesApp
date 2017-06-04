@@ -117,7 +117,7 @@ class MovieDAORest: MovieDAO {
                     }
                 case .failure:
                     if response.response?.statusCode == 401 {
-                        errorCallback(.unauthorized, "There has been a problem with the service. Try again later.")
+                        errorCallback(.unauthorized, "Unauthorized. You need to log in again.")
                     } else {
                         errorCallback(.error, "There has been a problem with the service. Try again later.")
                     }

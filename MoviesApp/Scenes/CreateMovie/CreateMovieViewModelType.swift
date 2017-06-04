@@ -14,6 +14,7 @@ class CreateMovieViewModelType: CreateMovieViewModel {
     weak var backNavigationEventDelegate: BackNavigationEventDelegate?
     let movieService: MovieService
     let userService: UserService
+    let sceneRouter: SceneRouter
 
     typealias OnCreateMovie = (Movie) -> Void
     let onCreateMovie: OnCreateMovie?
@@ -31,12 +32,14 @@ class CreateMovieViewModelType: CreateMovieViewModel {
 
     init(backgroundTaskEventDelegate: BackgroundTaskEventDelegate,
          backNavigationEventDelegate: BackNavigationEventDelegate, movieService: MovieService, userService: UserService,
-         onCreateMovie: OnCreateMovie?) {
+         onCreateMovie: OnCreateMovie?, sceneRouter: SceneRouter) {
+
         self.backgroundTaskEventDelegate = backgroundTaskEventDelegate
         self.backNavigationEventDelegate = backNavigationEventDelegate
         self.movieService = movieService
         self.userService = userService
         self.onCreateMovie = onCreateMovie
+        self.sceneRouter = sceneRouter
 
         name = Binder("")
         synopsis = Binder("")
@@ -99,7 +102,7 @@ class CreateMovieViewModelType: CreateMovieViewModel {
         guard let user = userService.loggedUser() else {
             self.backgroundTaskEventDelegate?.hideActivityIndicator()
             self.backgroundTaskEventDelegate?.showAlert(title: "ERROR", message: "You must be logged to create a movie",
-                                                        cancelActionText: "OK")
+                                                        cancelActionText: "OK", cancelAction: nil)
             return
         }
 
@@ -112,9 +115,18 @@ class CreateMovieViewModelType: CreateMovieViewModel {
                 self.backNavigationEventDelegate?.goBack()
                 movie.movieID = movieID
                 self.onCreateMovie?(movie)
-            }, errorCallback: { [unowned self] _, message in
+            }, errorCallback: { [unowned self] responseStatus, message in
                 self.backgroundTaskEventDelegate?.hideActivityIndicator()
-                self.backgroundTaskEventDelegate?.showAlert(title: "ERROR", message: message, cancelActionText: "OK")
+                if responseStatus == .unauthorized {
+                    self.backgroundTaskEventDelegate?.showAlert(title: ResponseStatus.unauthorized.rawValue,
+                        message: message, cancelActionText: "OK") { [unowned self] _ in
+                            self.userService.logOut()
+                            self.sceneRouter.showLogin()
+                    }
+                } else {
+                    self.backgroundTaskEventDelegate?.showAlert(title: "ERROR", message: message,
+                                                                cancelActionText: "OK", cancelAction: nil)
+                }
         })
     }
 
