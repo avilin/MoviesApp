@@ -25,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
 
         UINavigationBar.appearance().backgroundColor = FlatWhite()
+        UINavigationBar.appearance().tintColor = FlatSkyBlue()
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: FlatSkyBlue()]
 
         let userDAO = UserDAORest()

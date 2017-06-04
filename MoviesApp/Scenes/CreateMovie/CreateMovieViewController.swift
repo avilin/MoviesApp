@@ -64,10 +64,19 @@ class CreateMovieViewController: UITableViewController {
     }
 
     @IBAction func pickFromGalleryTouched(_ sender: UIButton) {
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.allowsEditing = false
+            imagePicker.sourceType = .photoLibrary
+            imagePicker.delegate = self
+
+            present(imagePicker, animated: true)
+        }
     }
 
     @IBAction func clearImageSelectionTouched(_ sender: UIButton) {
-        imageView.image = nil
+        imageView.image = #imageLiteral(resourceName: "movieImagePlaceholder")
+        viewModel?.imageData.onViewUpdated?(nil)
     }
 
     @IBAction func saveTouched(_ sender: UIBarButtonItem) {
@@ -82,8 +91,7 @@ class CreateMovieViewController: UITableViewController {
 
         viewModel?.imageURL.bindAndFireOnModelUpdated { [unowned self] image in
             if let image = image, let url = URL(string: image), UIApplication.shared.canOpenURL(url) {
-                self.imageView.load.request(with: image) { _ in
-                }
+                self.imageView.load.request(with: image)
             } else {
                 self.imageView.image = #imageLiteral(resourceName: "movieImagePlaceholder")
             }
@@ -105,6 +113,10 @@ class CreateMovieViewController: UITableViewController {
             self.genreTextField.text = genre
         }
 
+        viewModel?.enableImageURL.bindAndFireOnModelUpdated { [unowned self] enableImageURL in
+            self.imageURLTextField.isEnabled = enableImageURL
+        }
+
         viewModel?.enableSave.bindAndFireOnModelUpdated { [unowned self] enableSave in
             self.saveButton.isEnabled = enableSave
         }
@@ -122,6 +134,29 @@ extension CreateMovieViewController: UITextViewDelegate {
             break
         }
     }
+
+}
+
+// MARK: - UIImagePickerControllerDelegate
+extension CreateMovieViewController: UIImagePickerControllerDelegate {
+
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        imageView.image = image
+        if let image = image {
+            let imageData = UIImagePNGRepresentation(image)
+            viewModel?.imageData.onViewUpdated?(imageData)
+        } else {
+            viewModel?.imageData.onViewUpdated?(nil)
+        }
+
+        dismiss(animated: true)
+    }
+
+}
+
+// MARK: - UINavigationControllerDelegate
+extension CreateMovieViewController: UINavigationControllerDelegate {
 
 }
 

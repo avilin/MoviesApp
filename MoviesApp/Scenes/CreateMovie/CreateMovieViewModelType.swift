@@ -24,7 +24,9 @@ class CreateMovieViewModelType: CreateMovieViewModel {
     let genre: Binder<String>
     let imageURL: Binder<String?>
 
-    let enableSave: Binder<Bool>
+    let enableImageURL = Binder(true)
+    let imageData: Binder<Data?>
+    let enableSave = Binder(false)
 
     init(backgroundTaskEventDelegate: BackgroundTaskEventDelegate,
          backNavigationEventDelegate: BackNavigationEventDelegate, movieService: MovieService,
@@ -41,7 +43,7 @@ class CreateMovieViewModelType: CreateMovieViewModel {
         genre = Binder("")
         imageURL = Binder("")
 
-        enableSave = Binder(false)
+        imageData = Binder(nil)
 
         name.bindOnViewUpdated { [unowned self] (name) in
             self.name.value = name
@@ -77,7 +79,17 @@ class CreateMovieViewModelType: CreateMovieViewModel {
 
         imageURL.bindOnViewUpdated { [unowned self] (imageURL) in
             self.imageURL.value = imageURL
+            self.imageData.value = nil
         }
+
+        imageData.bindOnViewUpdated { [unowned self] (imageData) in
+            self.imageData.value = imageData
+            self.enableImageURL.value = imageData == nil
+            if imageData == nil {
+                self.imageURL.value = self.imageURL.value
+            }
+        }
+
     }
 
     func create() {

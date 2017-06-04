@@ -17,6 +17,8 @@ protocol CreateMovieViewModel {
     var genre: Binder<String> { get }
     var imageURL: Binder<String?> { get }
 
+    var imageData: Binder<Data?> { get }
+    var enableImageURL: Binder<Bool> { get }
     var enableSave: Binder<Bool> { get }
 
     func create()
