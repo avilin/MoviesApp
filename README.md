@@ -4,16 +4,16 @@ This is a pet project whose main goal is to use MVVM without frameworks, Alamofi
 ## Screens
 
 ### Login Screen
-![alt text](screenshots/LoginScreen.png "Login Screen" | width=500)
+<img src="screenshots/LoginScreen.png" width="310px" height="552px" />
 
 ### Register Screen
-![alt text](screenshots/RegisterScreen.png "Register Screen" | width=500)
+<img src="screenshots/RegisterScreen.png" width="310px" height="552px" />
 
 ### Movie Collection Screen
-![alt text](screenshots/MovieCollectionScreen.png "Movie Collection Screen" | width=500)
+<img src="screenshots/MovieCollectionScreen.png" width="310px" height="552px" />
 
 ### Movie Detail Screen
-![alt text](screenshots/MovieDetailScreen.png "Movie Detail Screen" | width=500)
+<img src="screenshots/MovieDetailScreen.png" width="310px" height="552px" />
 
 ### Create Movie Screen
-![alt text](screenshots/CreateMovieScreen.png "Create Movie Screen" | width=500)
+<img src="screenshots/CreateMovieScreen.png" width="310px" height="552px" />
