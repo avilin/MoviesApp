@@ -24,6 +24,7 @@ class CreateMovieViewController: UITableViewController {
     // MARK: - Properties
     var viewModel: CreateMovieViewModel?
     fileprivate let activityIndicator = AppActivityIndicator()
+    private let hideKeyboardOnTapHelper = HideKeyboardOnTapHelper()
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -35,7 +36,11 @@ class CreateMovieViewController: UITableViewController {
         initBindings()
 
         activityIndicator.configure(for: view)
+        hideKeyboardOnTapHelper.configureTapRecognizer(view: view)
+    }
 
+    override func viewDidDisappear(_ animated: Bool) {
+        hideKeyboardOnTapHelper.releaseTapRecognizer()
     }
 
     // MARK: - IBActions
@@ -140,8 +145,9 @@ extension CreateMovieViewController: UITextFieldDelegate {
             genreTextField.becomeFirstResponder()
         case genreTextField:
             synopsisTextView.becomeFirstResponder()
+            return false
         default:
-            textField.resignFirstResponder()
+            break
         }
         return true
     }

@@ -37,6 +37,7 @@
 		7C27966A1EE48E35008E7917 /* AppButtonAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2796691EE48E35008E7917 /* AppButtonAppearance.swift */; };
 		7C3435741EDCBA28005934EC /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3435731EDCBA28005934EC /* BackgroundView.swift */; };
 		7C3435761EDCBD70005934EC /* AppButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3435751EDCBD70005934EC /* AppButton.swift */; };
+		7C368D7E1EF58F5000FE94EB /* HideKeyboardOnTapHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C368D7D1EF58F5000FE94EB /* HideKeyboardOnTapHelper.swift */; };
 		7C3C33131EB71584007C5F5E /* Binder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3C33121EB71584007C5F5E /* Binder.swift */; };
 		7C3F972C1EE20F140099DE0A /* AppActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3F972B1EE20F140099DE0A /* AppActivityIndicator.swift */; };
 		7C58AEC61EE4241900D7CCB1 /* AppTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58AEC51EE4241900D7CCB1 /* AppTableView.swift */; };
@@ -100,6 +101,7 @@
 		7C2796691EE48E35008E7917 /* AppButtonAppearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppButtonAppearance.swift; sourceTree = "<group>"; };
 		7C3435731EDCBA28005934EC /* BackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		7C3435751EDCBD70005934EC /* AppButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppButton.swift; sourceTree = "<group>"; };
+		7C368D7D1EF58F5000FE94EB /* HideKeyboardOnTapHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HideKeyboardOnTapHelper.swift; sourceTree = "<group>"; };
 		7C3C33121EB71584007C5F5E /* Binder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Binder.swift; sourceTree = "<group>"; };
 		7C3F972B1EE20F140099DE0A /* AppActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppActivityIndicator.swift; sourceTree = "<group>"; };
 		7C58AEC51EE4241900D7CCB1 /* AppTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTableView.swift; sourceTree = "<group>"; };
@@ -278,6 +280,14 @@
 			path = AppCustomViews;
 			sourceTree = "<group>";
 		};
+		7C368D7C1EF58F1F00FE94EB /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				7C368D7D1EF58F5000FE94EB /* HideKeyboardOnTapHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		7C3C330C1EB714A2007C5F5E /* Commons */ = {
 			isa = PBXGroup;
 			children = (
@@ -285,6 +295,7 @@
 				7C3C330F1EB71559007C5F5E /* Bindings */,
 				7C5D5D1B1EE3120D001B4C95 /* Delegates */,
 				7C5D5D181EE30CCD001B4C95 /* Extensions */,
+				7C368D7C1EF58F1F00FE94EB /* Helpers */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -529,6 +540,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C2757561EDA0A3700C8AD3C /* UserService.swift in Sources */,
+				7C368D7E1EF58F5000FE94EB /* HideKeyboardOnTapHelper.swift in Sources */,
 				7C258B3B1EC887A300FE9B7E /* LoginViewController.swift in Sources */,
 				7C58AECA1EE42EDE00D7CCB1 /* ImageUploadRest.swift in Sources */,
 				7C258B411EC887A300FE9B7E /* RegisterViewModelType.swift in Sources */,
