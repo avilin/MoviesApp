@@ -124,6 +124,31 @@ class CreateMovieViewController: UITableViewController {
 
 }
 
+// MARK: - UITextFieldDelegate
+extension CreateMovieViewController: UITextFieldDelegate {
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        switch textField {
+        case nameTextField:
+            imageURLTextField.becomeFirstResponder()
+        case imageURLTextField:
+            movieLengthTextField.becomeFirstResponder()
+        case movieLengthTextField:
+            releaseDateTextField.becomeFirstResponder()
+        case releaseDateTextField:
+            genreTextField.becomeFirstResponder()
+        case genreTextField:
+            synopsisTextView.becomeFirstResponder()
+        default:
+            textField.resignFirstResponder()
+        }
+        return true
+    }
+
+}
+
+// MARK: - UITextViewDelegate
 extension CreateMovieViewController: UITextViewDelegate {
 
     func textViewDidChange(_ textView: UITextView) {
